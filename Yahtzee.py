@@ -15,15 +15,24 @@ whiteRectangle = RectangleAsset(100,100,blackOutline,white) #Width, height, outl
 blackCircle = CircleAsset(10,blackOutline,black) #Radius, outline, fill.
 text = TextAsset('Yahtzee' ,fill=red, style='bold 40pt Times')
 
-Sprite(whiteRectangle,(100,100))
-Sprite(whiteRectangle,(200,100))
-Sprite(whiteRectangle,(300,100))
-Sprite(whiteRectangle,(400,100))
+def mouseClick(event):
+    if event.x <= 100 and event.y <= 100:
+        
+
 Sprite(blackCircle,(150,150))
 Sprite(blackCircle,(250,150))
 Sprite(blackCircle,(350,150))
 Sprite(blackCircle,(450,150))
+
+
+
+
+Sprite(whiteRectangle,(100,100))
+Sprite(whiteRectangle,(200,100))
+Sprite(whiteRectangle,(300,100))
+Sprite(whiteRectangle,(400,100))
 Sprite(text, (200,0))
+App().listenMouseEvent("click", mouseClick)
 App().run()
 
 
