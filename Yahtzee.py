@@ -16,11 +16,28 @@ whiteRectangle = RectangleAsset(100,100,blackOutline,white) #Width, height, outl
 blackCircle = CircleAsset(10,blackOutline,black) #Radius, outline, fill.
 text = TextAsset('Yahtzee' ,fill=red, style='bold 40pt Times')
 
+def pickNum():
+    if event.x <= 150 and event.y <= 150:
+        Sprite(whiteRectangle,(100,100))
+        
+
+
+
+
+
+
+
+
+
+
+
+
 def mouseClick(event):
-    if event.x <= 150 and event.y <= 250:
-        return diceRoll()
-    if event.x <= 250 and event.y <= 250:
-        return diceRoll2()
+    diceRoll()
+    diceRoll2()
+    diceRoll3()
+    diceRoll4()
+    diceRoll5()
 
 def diceRoll():
     num = randint(1,6)
@@ -82,11 +99,102 @@ def diceRoll2():
         Sprite(blackCircle,(270,150))
         Sprite(blackCircle,(270,175))
         
+def diceRoll3():
+    num = randint(1,6)
+    if num == 1:
+        Sprite(blackCircle,(350,150))
+    if num == 2:
+        Sprite(blackCircle,(365,130))
+        Sprite(blackCircle,(335,170))
+    if num == 3:
+        Sprite(blackCircle,(365,130))
+        Sprite(blackCircle,(350,150))
+        Sprite(blackCircle,(335,170))
+    if num == 4:
+        Sprite(blackCircle,(330,130))
+        Sprite(blackCircle,(330,170))
+        Sprite(blackCircle,(370,130))
+        Sprite(blackCircle,(370,170))
+    if num == 5:
+        Sprite(blackCircle,(330,130))
+        Sprite(blackCircle,(330,170))
+        Sprite(blackCircle,(350,150))
+        Sprite(blackCircle,(370,130))
+        Sprite(blackCircle,(370,170))
+    if num == 6:
+        Sprite(blackCircle,(330,125))
+        Sprite(blackCircle,(330,150))
+        Sprite(blackCircle,(330,175))
+        Sprite(blackCircle,(370,125))
+        Sprite(blackCircle,(370,150))
+        Sprite(blackCircle,(370,175))
+        
+def diceRoll4():
+    num = randint(1,6)
+    if num == 1:
+        Sprite(blackCircle,(450,150))
+    if num == 2:
+        Sprite(blackCircle,(465,130))
+        Sprite(blackCircle,(435,170))
+    if num == 3:
+        Sprite(blackCircle,(465,130))
+        Sprite(blackCircle,(450,150))
+        Sprite(blackCircle,(435,170))
+    if num == 4:
+        Sprite(blackCircle,(430,130))
+        Sprite(blackCircle,(430,170))
+        Sprite(blackCircle,(470,130))
+        Sprite(blackCircle,(470,170))
+    if num == 5:
+        Sprite(blackCircle,(430,130))
+        Sprite(blackCircle,(430,170))
+        Sprite(blackCircle,(450,150))
+        Sprite(blackCircle,(470,130))
+        Sprite(blackCircle,(470,170))
+    if num == 6:
+        Sprite(blackCircle,(430,125))
+        Sprite(blackCircle,(430,150))
+        Sprite(blackCircle,(430,175))
+        Sprite(blackCircle,(470,125))
+        Sprite(blackCircle,(470,150))
+        Sprite(blackCircle,(470,175))
+
+def diceRoll5():
+    num = randint(1,6)
+    if num == 1:
+        Sprite(blackCircle,(550,150))
+    if num == 2:
+        Sprite(blackCircle,(565,130))
+        Sprite(blackCircle,(535,170))
+    if num == 3:
+        Sprite(blackCircle,(565,130))
+        Sprite(blackCircle,(550,150))
+        Sprite(blackCircle,(535,170))
+    if num == 4:
+        Sprite(blackCircle,(530,130))
+        Sprite(blackCircle,(530,170))
+        Sprite(blackCircle,(570,130))
+        Sprite(blackCircle,(570,170))
+    if num == 5:
+        Sprite(blackCircle,(530,130))
+        Sprite(blackCircle,(530,170))
+        Sprite(blackCircle,(550,150))
+        Sprite(blackCircle,(570,130))
+        Sprite(blackCircle,(570,170))
+    if num == 6:
+        Sprite(blackCircle,(530,125))
+        Sprite(blackCircle,(530,150))
+        Sprite(blackCircle,(530,175))
+        Sprite(blackCircle,(570,125))
+        Sprite(blackCircle,(570,150))
+        Sprite(blackCircle,(570,175))
+
 Sprite(whiteRectangle,(100,100))
 Sprite(whiteRectangle,(200,100))
 Sprite(whiteRectangle,(300,100))
 Sprite(whiteRectangle,(400,100))
-Sprite(text, (200,0))
+Sprite(whiteRectangle,(500,100))
+Sprite(text, (250,0))
 App().listenMouseEvent("click", mouseClick)
 App().run()
 
