@@ -17,11 +17,12 @@ blackCircle = CircleAsset(10,blackOutline,black) #Radius, outline, fill.
 text = TextAsset('Yahtzee' ,fill=red, style='bold 40pt Times')
 
 def mouseClick(event):
-    if event.x <= 150 and event.y <= 150:
-        return diceRoll1()
+    if event.x <= 150 and event.y <= 250:
+        return diceRoll()
+    if event.x <= 250 and event.y <= 250:
         return diceRoll2()
 
-def diceRoll1():
+def diceRoll():
     num = randint(1,6)
     if num == 1:
         Sprite(blackCircle,(150,150))
@@ -44,29 +45,29 @@ def diceRoll1():
         Sprite(blackCircle,(170,130))
         Sprite(blackCircle,(170,170))
     if num == 6:
-        Sprite(blackCircle,(130,130))
+        Sprite(blackCircle,(130,125))
         Sprite(blackCircle,(130,150))
-        Sprite(blackCircle,(130,170))
-        Sprite(blackCircle,(170,130))
+        Sprite(blackCircle,(130,175))
+        Sprite(blackCircle,(170,125))
         Sprite(blackCircle,(170,150))
-        Sprite(blackCircle,(170,170))
+        Sprite(blackCircle,(170,175))
         
 def diceRoll2():
     num = randint(1,6)
     if num == 1:
-        Sprite(blackCircle,(250,250))
+        Sprite(blackCircle,(250,150))
     if num == 2:
-        Sprite(blackCircle,(265,230))
-        Sprite(blackCircle,(235,270))
+        Sprite(blackCircle,(265,130))
+        Sprite(blackCircle,(235,170))
     if num == 3:
-        Sprite(blackCircle,(265,230))
-        Sprite(blackCircle,(250,250))
-        Sprite(blackCircle,(235,270))
+        Sprite(blackCircle,(265,130))
+        Sprite(blackCircle,(250,150))
+        Sprite(blackCircle,(235,170))
     if num == 4:
-        Sprite(blackCircle,(230,230))
-        Sprite(blackCircle,(230,270))
-        Sprite(blackCircle,(270,230))
-        Sprite(blackCircle,(270,270))
+        Sprite(blackCircle,(230,130))
+        Sprite(blackCircle,(230,170))
+        Sprite(blackCircle,(270,130))
+        Sprite(blackCircle,(270,170))
     if num == 5:
         Sprite(blackCircle,(230,130))
         Sprite(blackCircle,(230,170))
@@ -74,12 +75,12 @@ def diceRoll2():
         Sprite(blackCircle,(270,130))
         Sprite(blackCircle,(270,170))
     if num == 6:
-        Sprite(blackCircle,(230,130))
+        Sprite(blackCircle,(230,125))
         Sprite(blackCircle,(230,150))
-        Sprite(blackCircle,(230,170))
-        Sprite(blackCircle,(270,130))
+        Sprite(blackCircle,(230,175))
+        Sprite(blackCircle,(270,125))
         Sprite(blackCircle,(270,150))
-        Sprite(blackCircle,(270,170))
+        Sprite(blackCircle,(270,175))
         
 Sprite(whiteRectangle,(100,100))
 Sprite(whiteRectangle,(200,100))
