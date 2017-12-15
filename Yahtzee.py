@@ -481,6 +481,12 @@ def mouseClick(event):
         print('6')
         data['diceRoll5'] = False
 
+
+def reset():
+    for item in App().spritelist[:]:
+        item.destroy()
+    
+
 ##################Sprite Dice######################
 Sprite(whiteRectangle,(100,100))
 Sprite(whiteRectangle,(200,100))
@@ -497,3 +503,4 @@ Sprite(text, (250,0))
 Sprite(textRoll, (675,135))
 App().listenMouseEvent("click", mouseClick)
 App().run()
+
