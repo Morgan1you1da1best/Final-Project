@@ -5,6 +5,21 @@
 from random import randint
 from ggame import *
 
+def rollDice(dice,numbers):
+    dice = ['one','two','three','four','five']
+    
+
+
+
+
+
+
+
+
+
+
+
+
 red = Color(0xFF0000,1)
 green = Color(0x00FF00,1)
 blue = Color(0x0000FF,1)
@@ -13,10 +28,13 @@ white = Color(0xFFFFFF,1)
 
 blackOutline = LineStyle(1,black) #pixels, color
 whiteRectangle = RectangleAsset(100,100,blackOutline,white) #Width, height, outline, fill.
+cardRectangle = RectangleAsset(200,300,blackOutline,white)
 blackCircle = CircleAsset(10,blackOutline,black) #Radius, outline, fill.
 redCircle = CircleAsset(50,blackOutline,red)
 text = TextAsset('Yahtzee' ,fill=red, style='bold 40pt Times')
-
+titleCard = TextAsset('Player 1' ,fill=black, style='10pt Times')
+titleCard2 = TextAsset('Player 2' ,fill=black, style='10pt Times')
+textRoll = TextAsset('Roll' ,fill=black, style='20pt Verdana')
 data = {}
 
 ####################### Die #1 ############################## (dice(dice#)(dot#))
@@ -463,13 +481,19 @@ def mouseClick(event):
         print('6')
         data['diceRoll5'] = False
 
-
+##################Sprite Dice######################
 Sprite(whiteRectangle,(100,100))
 Sprite(whiteRectangle,(200,100))
 Sprite(whiteRectangle,(300,100))
 Sprite(whiteRectangle,(400,100))
 Sprite(whiteRectangle,(500,100))
 Sprite(redCircle,(700,150))
+#################Sprite Game Card##################
+Sprite(cardRectangle,(50,250))
+Sprite(cardRectangle,(300,250))
+Sprite(titleCard,(125,250))
+Sprite(titleCard2,(375,250))
 Sprite(text, (250,0))
+Sprite(textRoll, (675,135))
 App().listenMouseEvent("click", mouseClick)
 App().run()
