@@ -5,18 +5,6 @@
 from random import randint
 from ggame import *
 
-def rollDice(dice,numbers):
-    dice = ['one','two','three','four','five']
-    
-
-
-
-
-
-
-
-
-
 
 
 
@@ -37,199 +25,61 @@ titleCard2 = TextAsset('Player 2' ,fill=black, style='10pt Times')
 textRoll = TextAsset('Roll' ,fill=black, style='20pt Verdana')
 data = {}
 
-####################### Die #1 ############################## (dice(dice#)(dot#))
-def diceOneOne():
-    Sprite(blackCircle,(150,150))
+####################### Die Roll ############################## (dice(dice#)(dot#))
+def numOne(xcord1):
+        Sprite(blackCircle,(xcord1,150))
 
-def diceOneTwo():
-    Sprite(blackCircle,(165,130))
-    Sprite(blackCircle,(135,170))
+def numTwo(xcord1,xcord2):
+        Sprite(blackCircle,(xcord1,165))
+        Sprite(blackCircle,(xcord2,135))
 
-def diceOneThree():
-    Sprite(blackCircle,(165,130))
-    Sprite(blackCircle,(150,150))
-    Sprite(blackCircle,(135,170))
+def numThree(xcord1,xcord2,xcord3):
+        Sprite(blackCircle,(xcord1,165))
+        Sprite(blackCircle,(xcord2,150))
+        Sprite(blackCircle,(xcord3,135))
 
-def diceOneFour():
-    Sprite(blackCircle,(130,130))
-    Sprite(blackCircle,(130,170))
-    Sprite(blackCircle,(170,130))
-    Sprite(blackCircle,(170,170))
+def numFour(xcord1,xcord2,xcord3,xcord4):
+        Sprite(blackCircle,(xcord1,130))
+        Sprite(blackCircle,(xcord2,130))
+        Sprite(blackCircle,(xcord3,170))
+        Sprite(blackCircle,(xcord4,170))
 
-def diceOneFive():
-    Sprite(blackCircle,(130,130))
-    Sprite(blackCircle,(130,170))
-    Sprite(blackCircle,(150,150))
-    Sprite(blackCircle,(170,130))
-    Sprite(blackCircle,(170,170))
+def numFive(xcord1,xcord2,xcord3,xcord4,xcord5):
+        Sprite(blackCircle,(xcord1,130))
+        Sprite(blackCircle,(xcord2,130))
+        Sprite(blackCircle,(xcord3,150))
+        Sprite(blackCircle,(xcord4,170))
+        Sprite(blackCircle,(xcord5,170))
 
-def diceOneSix():
-    Sprite(blackCircle,(130,125))
-    Sprite(blackCircle,(130,150))
-    Sprite(blackCircle,(130,175))
-    Sprite(blackCircle,(170,125))
-    Sprite(blackCircle,(170,150))
-    Sprite(blackCircle,(170,175))
-    
-####################### Die #2 ##############################
-def diceTwoOne():
-    Sprite(blackCircle,(250,150))
-    
-def diceTwoTwo():
-    Sprite(blackCircle,(265,130))
-    Sprite(blackCircle,(235,170))
-    
-def diceTwoThree():
-    Sprite(blackCircle,(265,130))
-    Sprite(blackCircle,(250,150))
-    Sprite(blackCircle,(235,170))
-    
-def diceTwoFour():
-    Sprite(blackCircle,(230,130))
-    Sprite(blackCircle,(230,170))
-    Sprite(blackCircle,(270,130))
-    Sprite(blackCircle,(270,170))
+def numSix(xcord1,xcord2,xcord3,xcord4,xcord5,xcord6):
+        Sprite(blackCircle,(xcord1,125))
+        Sprite(blackCircle,(xcord2,150))
+        Sprite(blackCircle,(xcord3,175))
+        Sprite(blackCircle,(xcord4,125))
+        Sprite(blackCircle,(xcord5,150))
+        Sprite(blackCircle,(xcord6,175))
 
-def diceTwoFive():
-    Sprite(blackCircle,(230,130))
-    Sprite(blackCircle,(230,170))
-    Sprite(blackCircle,(250,150))
-    Sprite(blackCircle,(270,130))
-    Sprite(blackCircle,(270,170))
-
-def diceTwoSix():
-    Sprite(blackCircle,(230,125))
-    Sprite(blackCircle,(230,150))
-    Sprite(blackCircle,(230,175))
-    Sprite(blackCircle,(270,125))
-    Sprite(blackCircle,(270,150))
-    Sprite(blackCircle,(270,175))
-
-####################### Die #3 ##############################
-def diceThreeOne():
-    Sprite(blackCircle,(350,150))
-    
-def diceThreeTwo():
-    Sprite(blackCircle,(365,130))
-    Sprite(blackCircle,(335,170))
-    
-def diceThreeThree():
-    Sprite(blackCircle,(365,130))
-    Sprite(blackCircle,(350,150))
-    Sprite(blackCircle,(335,170))
-    
-def diceThreeFour():
-    Sprite(blackCircle,(330,130))
-    Sprite(blackCircle,(330,170))
-    Sprite(blackCircle,(370,130))
-    Sprite(blackCircle,(370,170))
-
-def diceThreeFive():
-    Sprite(blackCircle,(330,130))
-    Sprite(blackCircle,(330,170))
-    Sprite(blackCircle,(350,150))
-    Sprite(blackCircle,(370,130))
-    Sprite(blackCircle,(370,170))
-
-def diceThreeSix():
-    Sprite(blackCircle,(330,125))
-    Sprite(blackCircle,(330,150))
-    Sprite(blackCircle,(330,175))
-    Sprite(blackCircle,(370,125))
-    Sprite(blackCircle,(370,150))
-    Sprite(blackCircle,(370,175))
-
-####################### Die #4 ##############################
-def diceFourOne():
-    Sprite(blackCircle,(450,150))
-    
-def diceFourTwo():
-    Sprite(blackCircle,(465,130))
-    Sprite(blackCircle,(435,170))
-    
-def diceFourThree():
-    Sprite(blackCircle,(465,130))
-    Sprite(blackCircle,(450,150))
-    Sprite(blackCircle,(435,170))
-    
-def diceFourFour():
-    Sprite(blackCircle,(430,130))
-    Sprite(blackCircle,(430,170))
-    Sprite(blackCircle,(470,130))
-    Sprite(blackCircle,(470,170))
-
-def diceFourFive():
-    Sprite(blackCircle,(430,130))
-    Sprite(blackCircle,(430,170))
-    Sprite(blackCircle,(450,150))
-    Sprite(blackCircle,(470,130))
-    Sprite(blackCircle,(470,170))
-
-def diceFourSix():
-    Sprite(blackCircle,(430,125))
-    Sprite(blackCircle,(430,150))
-    Sprite(blackCircle,(430,175))
-    Sprite(blackCircle,(470,125))
-    Sprite(blackCircle,(470,150))
-    Sprite(blackCircle,(470,175))
-
-####################### Die #5 ##############################
-
-def diceFiveOne():
-    Sprite(blackCircle,(550,150))
-    
-def diceFiveTwo():
-    Sprite(blackCircle,(565,130))
-    Sprite(blackCircle,(535,170))
-    
-def diceFiveThree():
-    Sprite(blackCircle,(565,130))
-    Sprite(blackCircle,(550,150))
-    Sprite(blackCircle,(535,170))
-    
-def diceFiveFour():
-    Sprite(blackCircle,(530,130))
-    Sprite(blackCircle,(530,170))
-    Sprite(blackCircle,(570,130))
-    Sprite(blackCircle,(570,170))
-
-def diceFiveFive():
-    Sprite(blackCircle,(530,130))
-    Sprite(blackCircle,(530,170))
-    Sprite(blackCircle,(550,150))
-    Sprite(blackCircle,(570,130))
-    Sprite(blackCircle,(570,170))
-
-def diceFiveSix():
-    Sprite(blackCircle,(530,125))
-    Sprite(blackCircle,(530,150))
-    Sprite(blackCircle,(530,175))
-    Sprite(blackCircle,(570,125))
-    Sprite(blackCircle,(570,150))
-    Sprite(blackCircle,(570,175))
-
-
-#########################Dice Roll#################################
+#########################Dice Roll###############################
 
 def diceRoll():
     num = randint(1,6)
     if num == 1:
-        diceOneOne()
+        numOne(150)
         data['diceOneOne'] = True
     if num == 2:
-        diceOneTwo()
+        numTwo(165,135)
         data['diceOneTwo'] = True
     if num == 3:
-        diceOneThree()
+        numThree(170,150,130)
         data['diceOneThree'] = True
     if num == 4:
-        diceOneFour()
+        numFour(130,170,130,170)
         data['diceOneFour'] = True
     if num == 5:
-        diceOneFive()
+        numFive(130,170,150,130,170)
         data['diceOneFive'] = True
     if num == 6:
-        diceOneSix()
+        numSix(130,130,130,170,170,170)
         data['diceOneSix'] = True
 
 data['diceOneOne'] = False
@@ -243,22 +93,22 @@ data['diceOneSix'] = False
 def diceRoll2():
     num = randint(1,6)
     if num == 1:
-        diceTwoOne()
+        numOne(250)
         data['diceTwoOne'] = True
     if num == 2:
-        diceTwoTwo()
+        numTwo(265,235)
         data['diceTwoTwo'] = True
     if num == 3:
-        diceTwoThree()
+        numThree(270,250,230)
         data['diceTwoThree'] = True
     if num == 4:
-        diceTwoFour()
+        numFour(230,270,230,270)
         data['diceTwoFour'] = True
     if num == 5:
-        diceTwoFive()
+        numFive(230,270,250,230,270)
         data['diceTwoFive'] = True
     if num == 6:
-        diceTwoSix()
+        numSix(230,230,230,270,270,270)
         data['diceTwoSix'] = True
         
 data['diceTwoOne'] = False
@@ -271,22 +121,22 @@ data['diceTwoSix'] = False
 def diceRoll3():
     num = randint(1,6)
     if num == 1:
-        diceThreeOne()
+        numOne(350)
         data ['diceThreeOne'] = True
     if num == 2:
-        diceThreeTwo()
+        numTwo(365,335)
         data ['diceThreeTwo'] = True
     if num == 3:
-        diceThreeThree()
+        numThree(370,350,330)
         data ['diceThreeThree'] = True
     if num == 4:
-        diceThreeFour()
+        numFour(330,370,330,370)
         data ['diceThreeFour'] = True
     if num == 5:
-        diceThreeFive()
+        numFive(330,370,350,330,370)
         data ['diceThreeFive'] = True
     if num == 6:
-        diceThreeSix()
+        numSix(330,330,330,370,370,370)
         data ['diceThreeSix'] = True
         
 data['diceThreeOne'] = False
@@ -299,22 +149,22 @@ data['diceThreeSix'] = False
 def diceRoll4():
     num = randint(1,6)
     if num == 1:
-        diceFourOne()
+        numOne(450)
         data['diceFourOne'] = True
     if num == 2:
-        diceFourTwo()
+        numTwo(465,435)
         data['diceFourTwo'] = True
     if num == 3:
-        diceFourThree()
+        numThree(470,450,430)
         data['diceFourThree'] = True
     if num == 4:
-        diceFourFour()
+        numFour(430,470,470,430)
         data['diceFourFour'] = True
     if num == 5:
-        diceFourFive()
+        numFive(430,470,450,430,470)
         data['diceFourFive'] = True
     if num == 6:
-        diceFourSix()
+        numSix(430,430,430,470,470,470)
         data['diceFourSix'] = True
 
 data['diceFourOne'] = False
@@ -329,22 +179,22 @@ data['diceFourSix'] = False
 def diceRoll5():
     num = randint(1,6)
     if num == 1:
-        diceFiveOne()
+        numOne(550)
         data['diceFiveOne'] = True
     if num == 2:
-        diceFiveTwo()
+        numTwo(565,535)
         data['diceFiveTwo'] = True
     if num == 3:
-        diceFiveThree()
+        numThree(565,550,535)
         data['diceFiveThree'] = True
     if num == 4:
-        diceFiveFour()
+        numFour(530,570,530,570)
         data['diceFiveFour'] = True
     if num == 5:
-        diceFiveFive()
+        numFive(530,570,550,530,570)
         data['diceFiveFive'] = True
     if num == 6:
-        diceFiveSix()
+        numSix(530,530,530,570,570,570)
         data['diceFiveSix'] = True
         
 data['diceFiveOne'] = False
@@ -480,9 +330,9 @@ def mouseClick(event):
     if event.x >= 500 and event.x <= 600 and event.y >= 100 and event.y <= 200 and data['diceFiveSix'] == True:
         print('6')
         data['diceRoll5'] = False
+    redrawAll()
 
-
-def reset():
+def redrawAll():
     for item in App().spritelist[:]:
         item.destroy()
     
