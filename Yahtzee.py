@@ -23,11 +23,12 @@ text = TextAsset('Yahtzee' ,fill=red, style='bold 40pt Times')
 titleCard = TextAsset('Player 1' ,fill=black, style='10pt Times')
 titleCard2 = TextAsset('Player 2' ,fill=black, style='10pt Times')
 textRoll = TextAsset('Roll' ,fill=black, style='20pt Verdana')
-data = {}
+
 
 ####################### Die Roll ############################## (dice(dice#)(dot#))
 def numOne(xcord1):
         Sprite(blackCircle,(xcord1,150))
+        print('bye')
 
 def numTwo(xcord1,xcord2):
         Sprite(blackCircle,(xcord1,165))
@@ -82,14 +83,6 @@ def diceRoll():
         numSix(130,130,130,170,170,170)
         data['diceOneSix'] = True
 
-data['diceOneOne'] = False
-data['diceOneTwo'] = False
-data['diceOneThree'] = False
-data['diceOneFour'] = False
-data['diceOneFive'] = False
-data['diceOneSix'] = False
-
-
 def diceRoll2():
     num = randint(1,6)
     if num == 1:
@@ -111,13 +104,6 @@ def diceRoll2():
         numSix(230,230,230,270,270,270)
         data['diceTwoSix'] = True
         
-data['diceTwoOne'] = False
-data['diceTwoTwo'] = False
-data['diceTwoThree'] = False
-data['diceTwoFour'] = False
-data['diceTwoFive'] = False
-data['diceTwoSix'] = False
-
 def diceRoll3():
     num = randint(1,6)
     if num == 1:
@@ -138,14 +124,7 @@ def diceRoll3():
     if num == 6:
         numSix(330,330,330,370,370,370)
         data ['diceThreeSix'] = True
-        
-data['diceThreeOne'] = False
-data['diceThreeTwo'] = False
-data['diceThreeThree'] = False
-data['diceThreeFour'] = False
-data['diceThreeFive'] = False
-data['diceThreeSix'] = False
-        
+
 def diceRoll4():
     num = randint(1,6)
     if num == 1:
@@ -166,15 +145,6 @@ def diceRoll4():
     if num == 6:
         numSix(430,430,430,470,470,470)
         data['diceFourSix'] = True
-
-data['diceFourOne'] = False
-data['diceFourTwo'] = False
-data['diceFourThree'] = False
-data['diceFourFour'] = False
-data['diceFourFive'] = False
-data['diceFourSix'] = False
-
-
 
 def diceRoll5():
     num = randint(1,6)
@@ -197,20 +167,10 @@ def diceRoll5():
         numSix(530,530,530,570,570,570)
         data['diceFiveSix'] = True
         
-data['diceFiveOne'] = False
-data['diceFiveTwo'] = False
-data['diceFiveThree'] = False
-data['diceFiveFour'] = False
-data['diceFiveFive'] = False
-data['diceFiveSix'] = False
+
 
 ####################### Roll Dice ###########################
 
-data['diceRoll'] = True
-data['diceRoll2'] = True
-data['diceRoll3'] = True
-data['diceRoll4'] = True
-data['diceRoll5'] = True
 
 def mouseClick(event):
     if event.x <= 750 and event.x >=650 and event.y <= 200 and event.y >= 100:
@@ -331,26 +291,77 @@ def mouseClick(event):
         print('6')
         data['diceRoll5'] = False
     redrawAll()
-
+    
 def redrawAll():
     for item in App().spritelist[:]:
         item.destroy()
+    x = 0
+    for dice in data['dice']:
+        if dice == 1:
+            numOne(150+x)
+        x += 100
+        if dice == 2:
+            numTwo(165+x,135+x)
+        x += 100
+        if numThree(
+##################Sprite Dice######################
+    Sprite(whiteRectangle,(100,100))
+    Sprite(whiteRectangle,(200,100))
+    Sprite(whiteRectangle,(300,100))
+    Sprite(whiteRectangle,(400,100))
+    Sprite(whiteRectangle,(500,100))
+    Sprite(redCircle,(700,150))
+#################Sprite Game Card##################
+    Sprite(cardRectangle,(50,250))
+    Sprite(cardRectangle,(300,250))
+    Sprite(titleCard,(125,250))
+    Sprite(titleCard2,(375,250))
+    Sprite(text, (250,0))
+    Sprite(textRoll, (675,135))
     
 
-##################Sprite Dice######################
-Sprite(whiteRectangle,(100,100))
-Sprite(whiteRectangle,(200,100))
-Sprite(whiteRectangle,(300,100))
-Sprite(whiteRectangle,(400,100))
-Sprite(whiteRectangle,(500,100))
-Sprite(redCircle,(700,150))
-#################Sprite Game Card##################
-Sprite(cardRectangle,(50,250))
-Sprite(cardRectangle,(300,250))
-Sprite(titleCard,(125,250))
-Sprite(titleCard2,(375,250))
-Sprite(text, (250,0))
-Sprite(textRoll, (675,135))
-App().listenMouseEvent("click", mouseClick)
-App().run()
+if __name__=='__main__':
+    
+    data = {}
+    data['dice'] = [1,2,3,4,5]
+
+    data['diceRoll'] = True
+    data['diceRoll2'] = True
+    data['diceRoll3'] = True
+    data['diceRoll4'] = True
+    data['diceRoll5'] = True
+    data['diceFiveOne'] = False
+    data['diceFiveTwo'] = False
+    data['diceFiveThree'] = False
+    data['diceFiveFour'] = False
+    data['diceFiveFive'] = False
+    data['diceFiveSix'] = False
+    data['diceOneOne'] = False
+    data['diceOneTwo'] = False
+    data['diceOneThree'] = False
+    data['diceOneFour'] = False
+    data['diceOneFive'] = False
+    data['diceOneSix'] = False
+    data['diceTwoOne'] = False
+    data['diceTwoTwo'] = False
+    data['diceTwoThree'] = False
+    data['diceTwoFour'] = False
+    data['diceTwoFive'] = False
+    data['diceTwoSix'] = False
+    data['diceThreeOne'] = False
+    data['diceThreeTwo'] = False
+    data['diceThreeThree'] = False
+    data['diceThreeFour'] = False
+    data['diceThreeFive'] = False
+    data['diceThreeSix'] = False
+    data['diceFourOne'] = False
+    data['diceFourTwo'] = False
+    data['diceFourThree'] = False
+    data['diceFourFour'] = False
+    data['diceFourFive'] = False
+    data['diceFourSix'] = False
+
+    redrawAll()
+    App().listenMouseEvent("click", mouseClick)
+    App().run()
 
