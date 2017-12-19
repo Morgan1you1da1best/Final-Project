@@ -28,7 +28,6 @@ textRoll = TextAsset('Roll' ,fill=black, style='20pt Verdana')
 ####################### Die Roll ############################## (dice(dice#)(dot#))
 def numOne(xcord1):
         Sprite(blackCircle,(xcord1,150))
-        print('bye')
 
 def numTwo(xcord1,xcord2):
         Sprite(blackCircle,(xcord1,165))
@@ -63,127 +62,15 @@ def numSix(xcord1,xcord2,xcord3,xcord4,xcord5,xcord6):
 #########################Dice Roll###############################
 
 def diceRoll():
-    num = randint(1,6)
-    if num == 1:
-        numOne(150)
-        data['diceOneOne'] = True
-    if num == 2:
-        numTwo(165,135)
-        data['diceOneTwo'] = True
-    if num == 3:
-        numThree(170,150,130)
-        data['diceOneThree'] = True
-    if num == 4:
-        numFour(130,170,130,170)
-        data['diceOneFour'] = True
-    if num == 5:
-        numFive(130,170,150,130,170)
-        data['diceOneFive'] = True
-    if num == 6:
-        numSix(130,130,130,170,170,170)
-        data['diceOneSix'] = True
+    for num in range(0,5):
+        data['dice'][num] = randint(1,6)
 
-def diceRoll2():
-    num = randint(1,6)
-    if num == 1:
-        numOne(250)
-        data['diceTwoOne'] = True
-    if num == 2:
-        numTwo(265,235)
-        data['diceTwoTwo'] = True
-    if num == 3:
-        numThree(270,250,230)
-        data['diceTwoThree'] = True
-    if num == 4:
-        numFour(230,270,230,270)
-        data['diceTwoFour'] = True
-    if num == 5:
-        numFive(230,270,250,230,270)
-        data['diceTwoFive'] = True
-    if num == 6:
-        numSix(230,230,230,270,270,270)
-        data['diceTwoSix'] = True
-        
-def diceRoll3():
-    num = randint(1,6)
-    if num == 1:
-        numOne(350)
-        data ['diceThreeOne'] = True
-    if num == 2:
-        numTwo(365,335)
-        data ['diceThreeTwo'] = True
-    if num == 3:
-        numThree(370,350,330)
-        data ['diceThreeThree'] = True
-    if num == 4:
-        numFour(330,370,330,370)
-        data ['diceThreeFour'] = True
-    if num == 5:
-        numFive(330,370,350,330,370)
-        data ['diceThreeFive'] = True
-    if num == 6:
-        numSix(330,330,330,370,370,370)
-        data ['diceThreeSix'] = True
-
-def diceRoll4():
-    num = randint(1,6)
-    if num == 1:
-        numOne(450)
-        data['diceFourOne'] = True
-    if num == 2:
-        numTwo(465,435)
-        data['diceFourTwo'] = True
-    if num == 3:
-        numThree(470,450,430)
-        data['diceFourThree'] = True
-    if num == 4:
-        numFour(430,470,470,430)
-        data['diceFourFour'] = True
-    if num == 5:
-        numFive(430,470,450,430,470)
-        data['diceFourFive'] = True
-    if num == 6:
-        numSix(430,430,430,470,470,470)
-        data['diceFourSix'] = True
-
-def diceRoll5():
-    num = randint(1,6)
-    if num == 1:
-        numOne(550)
-        data['diceFiveOne'] = True
-    if num == 2:
-        numTwo(565,535)
-        data['diceFiveTwo'] = True
-    if num == 3:
-        numThree(565,550,535)
-        data['diceFiveThree'] = True
-    if num == 4:
-        numFour(530,570,530,570)
-        data['diceFiveFour'] = True
-    if num == 5:
-        numFive(530,570,550,530,570)
-        data['diceFiveFive'] = True
-    if num == 6:
-        numSix(530,530,530,570,570,570)
-        data['diceFiveSix'] = True
-        
-
-
-####################### Roll Dice ###########################
 
 
 def mouseClick(event):
     if event.x <= 750 and event.x >=650 and event.y <= 200 and event.y >= 100:
         if data['diceRoll'] == True:
             diceRoll()
-        if data['diceRoll2'] == True:
-            diceRoll2()
-        if data['diceRoll3'] == True:
-            diceRoll3()
-        if data['diceRoll4'] == True:
-            diceRoll4()
-        if data['diceRoll5'] == True:
-            diceRoll5()
     
 #################################Pick Dice #1#############################
     
@@ -295,15 +182,6 @@ def mouseClick(event):
 def redrawAll():
     for item in App().spritelist[:]:
         item.destroy()
-    x = 0
-    for dice in data['dice']:
-        if dice == 1:
-            numOne(150+x)
-        x += 100
-        if dice == 2:
-            numTwo(165+x,135+x)
-        x += 100
-        if numThree(
 ##################Sprite Dice######################
     Sprite(whiteRectangle,(100,100))
     Sprite(whiteRectangle,(200,100))
@@ -318,6 +196,22 @@ def redrawAll():
     Sprite(titleCard2,(375,250))
     Sprite(text, (250,0))
     Sprite(textRoll, (675,135))
+    x = 0
+    for dice in data['dice']:
+        if dice == 1:
+            numOne(150+x)
+        if dice == 2:
+            numTwo(165+x,135+x)
+        if dice == 3:
+            numThree(170+x,150+x,130+x)
+        if dice == 4:
+            numFour(130+x,170+x,130+x,170+x)
+        if dice == 5:
+            numFive(130+x,170+x,150+x,130+x,170+x)
+        if dice == 6:
+            numSix(130+x,130+x,130+x,170+x,170+x,170+x)
+        x += 100
+        
     
 
 if __name__=='__main__':
