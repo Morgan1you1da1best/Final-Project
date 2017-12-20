@@ -66,118 +66,21 @@ def diceRoll():
         data['dice'][num] = randint(1,6)
 
 
-
 def mouseClick(event):
     if event.x <= 750 and event.x >=650 and event.y <= 200 and event.y >= 100:
-        if data['diceRoll'] == True:
+        if data['diceRoll'] == [1,2,3,4,5,6]:
             diceRoll()
     
 #################################Pick Dice #1#############################
-    
-    if event.x >= 100 and event.x <= 200 and event.y >= 100 and event.y <= 200 and data['diceOneOne'] == True:
-        print('1')
-        data['diceRoll'] = False
-    if event.x >= 100 and event.x <= 200 and event.y >= 100 and event.y <= 200 and data['diceOneTwo'] == True:
-        print('2')
-        data['diceRoll'] = False
-    if event.x >= 100 and event.x <= 200 and event.y >= 100 and event.y <= 200 and data['diceOneThree'] == True:
-        print('3')
-        data['diceRoll'] = False
-    if event.x >= 100 and event.x <= 200 and event.y >= 100 and event.y <= 200 and data['diceOneFour'] == True:
-        print('4')
-        data['diceRoll'] = False
-    if event.x >= 100 and event.x <= 200 and event.y >= 100 and event.y <= 200 and data['diceOneFive'] == True:
-        print('5')
-        data['diceRoll'] = False
-    if event.x >= 100 and event.x <= 200 and event.y >= 100 and event.y <= 200 and data['diceOneSix'] == True:
-        print('6')
-        data['diceRoll'] = False
+    x = 0
+    for dice in data['dice']:
+        if event.x >= 100+x and event.x <= 200+x and event.y >= 100 and event.y <= 200:
+            data['diceRoll'].remove(dice)
+            print('hi')
+        x += 100
 
-#################################Pick Dice #2#############################
-
-    if event.x >= 200 and event.x <= 300 and event.y >= 100 and event.y <= 200 and data['diceTwoOne'] == True:
-        print('1')
-        data['diceRoll2'] = False
-    if event.x >= 200 and event.x <= 300 and event.y >= 100 and event.y <= 200 and data['diceTwoTwo'] == True:
-        print('2')
-        data['diceRoll2'] = False
-    if event.x >= 200 and event.x <= 300 and event.y >= 100 and event.y <= 200 and data['diceTwoThree'] == True:
-        print('3')
-        data['diceRoll2'] = False
-    if event.x >= 200 and event.x <= 300 and event.y >= 100 and event.y <= 200 and data['diceTwoFour'] == True:
-        print('4')
-        data['diceRoll2'] = False
-    if event.x >= 200 and event.x <= 300 and event.y >= 100 and event.y <= 200 and data['diceTwoFive'] == True:
-        print('5')
-        data['diceRoll2'] = False
-    if event.x >= 200 and event.x <= 300 and event.y >= 100 and event.y <= 200 and data['diceTwoSix'] == True:
-        print('6')
-        data['diceRoll2'] = False
- 
-#################################Pick Dice #3#############################
-
-    if event.x >= 300 and event.x <= 300 and event.y >= 100 and event.y <= 200 and data['diceThreeOne'] == True:
-        print('1')
-        data['diceRoll3'] = False
-    if event.x >= 300 and event.x <= 400 and event.y >= 100 and event.y <= 200 and data['diceThreeTwo'] == True:
-        print('2')
-        data['diceRoll3'] = False
-    if event.x >= 300 and event.x <= 400 and event.y >= 100 and event.y <= 200 and data['diceThreeThree'] == True:
-        print('3')
-        data['diceRoll3'] = False
-    if event.x >= 300 and event.x <= 400 and event.y >= 100 and event.y <= 200 and data['diceThreeFour'] == True:
-        print('4')
-        data['diceRoll3'] = False
-    if event.x >= 300 and event.x <= 400 and event.y >= 100 and event.y <= 200 and data['diceThreeFive'] == True:
-        print('5')
-        data['diceRoll3'] = False
-    if event.x >= 300 and event.x <= 400 and event.y >= 100 and event.y <= 200 and data['diceThreeSix'] == True:
-        print('6')
-        data['diceRoll3'] = False
-
-
-#################################Pick Dice #4#############################
-
-    if event.x >= 400 and event.x <= 500 and event.y >= 100 and event.y <= 200 and data['diceFourOne'] == True:
-        print('1')
-        data['diceRoll4'] = False
-    if event.x >= 400 and event.x <= 500 and event.y >= 100 and event.y <= 200 and data['diceFourTwo'] == True:
-        print('2')
-        data['diceRoll4'] = False
-    if event.x >= 400 and event.x <= 500 and event.y >= 100 and event.y <= 200 and data['diceFourThree'] == True:
-        print('3')
-        data['diceRoll4'] = False
-    if event.x >= 400 and event.x <= 500 and event.y >= 100 and event.y <= 200 and data['diceFourFour'] == True:
-        print('4')
-        data['diceRoll4'] = False
-    if event.x >= 400 and event.x <= 500 and event.y >= 100 and event.y <= 200 and data['diceFourFive'] == True:
-        print('5')
-        data['diceRoll4'] = False
-    if event.x >= 400 and event.x <= 500 and event.y >= 100 and event.y <= 200 and data['diceFourSix'] == True:
-        print('6')
-        data['diceRoll4'] = False
-
-#################################Pick Dice #5#############################
-
-    if event.x >= 500 and event.x <= 600 and event.y >= 100 and event.y <= 200 and data['diceFiveOne'] == True:
-        print('1')
-        data['diceRoll5'] = False
-    if event.x >= 500 and event.x <= 600 and event.y >= 100 and event.y <= 200 and data['diceFiveTwo'] == True:
-        print('2')
-        data['diceRoll5'] = False
-    if event.x >= 500 and event.x <= 600 and event.y >= 100 and event.y <= 200 and data['diceFiveThree'] == True:
-        print('3')
-        data['diceRoll5'] = False
-    if event.x >= 500 and event.x <= 600 and event.y >= 100 and event.y <= 200 and data['diceFiveFour'] == True:
-        print('4')
-        data['diceRoll5'] = False
-    if event.x >= 500 and event.x <= 600 and event.y >= 100 and event.y <= 200 and data['diceFiveFive'] == True:
-        print('5')
-        data['diceRoll5'] = False
-    if event.x >= 500 and event.x <= 600 and event.y >= 100 and event.y <= 200 and data['diceFiveSix'] == True:
-        print('6')
-        data['diceRoll5'] = False
     redrawAll()
+    
     
 def redrawAll():
     for item in App().spritelist[:]:
@@ -218,42 +121,9 @@ if __name__=='__main__':
     
     data = {}
     data['dice'] = [1,2,3,4,5]
+    data['diceRoll'] = [1,2,3,4,5,6]
 
-    data['diceRoll'] = True
-    data['diceRoll2'] = True
-    data['diceRoll3'] = True
-    data['diceRoll4'] = True
-    data['diceRoll5'] = True
-    data['diceFiveOne'] = False
-    data['diceFiveTwo'] = False
-    data['diceFiveThree'] = False
-    data['diceFiveFour'] = False
-    data['diceFiveFive'] = False
-    data['diceFiveSix'] = False
-    data['diceOneOne'] = False
-    data['diceOneTwo'] = False
-    data['diceOneThree'] = False
-    data['diceOneFour'] = False
-    data['diceOneFive'] = False
-    data['diceOneSix'] = False
-    data['diceTwoOne'] = False
-    data['diceTwoTwo'] = False
-    data['diceTwoThree'] = False
-    data['diceTwoFour'] = False
-    data['diceTwoFive'] = False
-    data['diceTwoSix'] = False
-    data['diceThreeOne'] = False
-    data['diceThreeTwo'] = False
-    data['diceThreeThree'] = False
-    data['diceThreeFour'] = False
-    data['diceThreeFive'] = False
-    data['diceThreeSix'] = False
-    data['diceFourOne'] = False
-    data['diceFourTwo'] = False
-    data['diceFourThree'] = False
-    data['diceFourFour'] = False
-    data['diceFourFive'] = False
-    data['diceFourSix'] = False
+
 
     redrawAll()
     App().listenMouseEvent("click", mouseClick)
