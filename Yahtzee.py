@@ -69,17 +69,21 @@ def mouseClick(event):
     if event.x <= 750 and event.x >=650 and event.y <= 200 and event.y >= 100:
         diceRoll()
     
-#################################Pick Dice #1#############################
+#################################Pick Dice#############################
     x = 0
     for dice in data['dice']:
         if event.x >= 100+x and event.x <= 200+x and event.y >= 100 and event.y <= 200:
             data['diceRoll'].remove(dice)
-            print('hi')
+            data['scoreCard'].append(dice)
+            scoreCard()
         x += 100
 
     redrawAll()
     
     
+def scoreCard():
+    print(data['scoreCard'][:])
+#################################redrawAll################################
 def redrawAll():
     for item in App().spritelist[:]:
         item.destroy()
@@ -113,7 +117,7 @@ def redrawAll():
         if dice == 6:
             numSix(130+x,130+x,130+x,170+x,170+x,170+x)
         x += 100
-        
+
     
 
 if __name__=='__main__':
@@ -121,8 +125,9 @@ if __name__=='__main__':
 
     data = {}
     data['dice'] = [1,2,3,4,5]
-    data['diceRoll'] = [1,2,3,4,5,6]
-
+    data['diceRoll'] = [1,1,1,1,1,2,2,2,2,2,3,3,3,3,3,4,4,4,4,4,5,5,5,5,5,6,6,6,6,6,6]
+    data['scoreCard'] = []
+    
     redrawAll()
     App().listenMouseEvent("click", mouseClick)
     App().run()
