@@ -5,9 +5,6 @@
 from random import randint
 from ggame import *
 
-
-
-
 red = Color(0xFF0000,1)
 green = Color(0x00FF00,1)
 blue = Color(0x0000FF,1)
@@ -63,12 +60,12 @@ def numSix(xcord1,xcord2,xcord3,xcord4,xcord5,xcord6):
 
 def diceRoll():
     for num in range(0,5):
-        data['dice'][num] = randint(1,6)
+        for num+1 in data['diceRoll']:
+            data['dice'][num] = randint(1,6)
 
-
+########################Roll Button####################################
 def mouseClick(event):
     if event.x <= 750 and event.x >=650 and event.y <= 200 and event.y >= 100:
-        if data['diceRoll'] == [1,2,3,4,5,6]:
             diceRoll()
     
 #################################Pick Dice #1#############################
@@ -122,7 +119,6 @@ if __name__=='__main__':
     data = {}
     data['dice'] = [1,2,3,4,5]
     data['diceRoll'] = [1,2,3,4,5,6]
-
 
 
     redrawAll()
