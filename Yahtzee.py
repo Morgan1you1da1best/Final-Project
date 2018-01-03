@@ -3,7 +3,8 @@
 #Yahtzee.py
 
 from random import randint
-from ggame import *
+from ggame import*
+
 
 red = Color(0xFF0000,1)
 green = Color(0x00FF00,1)
@@ -60,13 +61,13 @@ def numSix(xcord1,xcord2,xcord3,xcord4,xcord5,xcord6):
 
 def diceRoll():
     for num in range(0,5):
-        for num+1 in data['diceRoll']:
+        if num+1 in data['diceRoll']:
             data['dice'][num] = randint(1,6)
 
 ########################Roll Button####################################
 def mouseClick(event):
     if event.x <= 750 and event.x >=650 and event.y <= 200 and event.y >= 100:
-            diceRoll()
+        diceRoll()
     
 #################################Pick Dice #1#############################
     x = 0
@@ -82,20 +83,21 @@ def mouseClick(event):
 def redrawAll():
     for item in App().spritelist[:]:
         item.destroy()
-##################Sprite Dice######################
+
+
     Sprite(whiteRectangle,(100,100))
     Sprite(whiteRectangle,(200,100))
     Sprite(whiteRectangle,(300,100))
     Sprite(whiteRectangle,(400,100))
     Sprite(whiteRectangle,(500,100))
     Sprite(redCircle,(700,150))
-#################Sprite Game Card##################
     Sprite(cardRectangle,(50,250))
     Sprite(cardRectangle,(300,250))
     Sprite(titleCard,(125,250))
     Sprite(titleCard2,(375,250))
     Sprite(text, (250,0))
     Sprite(textRoll, (675,135))
+    
     x = 0
     for dice in data['dice']:
         if dice == 1:
@@ -116,12 +118,11 @@ def redrawAll():
 
 if __name__=='__main__':
     
+
     data = {}
     data['dice'] = [1,2,3,4,5]
     data['diceRoll'] = [1,2,3,4,5,6]
 
-
     redrawAll()
     App().listenMouseEvent("click", mouseClick)
     App().run()
-
