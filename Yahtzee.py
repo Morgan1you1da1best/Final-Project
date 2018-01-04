@@ -61,28 +61,37 @@ def numSix(xcord1,xcord2,xcord3,xcord4,xcord5,xcord6):
 
 def diceRoll():
     for num in range(0,5):
-        if num+1 in data['diceRoll']:
+        if num+1 in data['dicePick']:
             data['dice'][num] = randint(1,6)
 
 ########################Roll Button####################################
 def mouseClick(event):
     if event.x <= 750 and event.x >=650 and event.y <= 200 and event.y >= 100:
         diceRoll()
-    
 #################################Pick Dice#############################
     x = 0
-    for dice in data['dice']:
+    for dice in range(1,6):
         if event.x >= 100+x and event.x <= 200+x and event.y >= 100 and event.y <= 200:
-            data['diceRoll'].remove(dice)
-            data['scoreCard'].append(dice)
-            scoreCard()
+            data['dicePick'].remove(dice)
+            if 1 in data['dice']:
+                data['score'].append(1)
+            if 2 in data['dice']:
+                data['score'].append(2)
+            if 3 in data['dice']:
+                data['score'].append(3)
+            if 4 in data['dice']:
+                data['score'].append(4)
+            if 5 in data['dice']:
+                data['score'].append(5)
+            if 6 in data['dice']:
+                data['score'].append(6)
+                scoreCard()
         x += 100
-
+        
     redrawAll()
     
-    
 def scoreCard():
-    print(data['scoreCard'][:])
+    print(data['score'][:])
 #################################redrawAll################################
 def redrawAll():
     for item in App().spritelist[:]:
@@ -99,8 +108,8 @@ def redrawAll():
     Sprite(cardRectangle,(300,250))
     Sprite(titleCard,(125,250))
     Sprite(titleCard2,(375,250))
-    Sprite(text, (250,0))
-    Sprite(textRoll, (675,135))
+    Sprite(text,(250,0))
+    Sprite(textRoll,(675,135))
     
     x = 0
     for dice in data['dice']:
@@ -117,16 +126,16 @@ def redrawAll():
         if dice == 6:
             numSix(130+x,130+x,130+x,170+x,170+x,170+x)
         x += 100
-
-    
+        
 
 if __name__=='__main__':
     
 
     data = {}
     data['dice'] = [1,2,3,4,5]
-    data['diceRoll'] = [1,1,1,1,1,2,2,2,2,2,3,3,3,3,3,4,4,4,4,4,5,5,5,5,5,6,6,6,6,6,6]
-    data['scoreCard'] = []
+    data['dicePick'] = [1,2,3,4,5]
+    data['score'] = [1,2,3,4,5,6]
+
     
     redrawAll()
     App().listenMouseEvent("click", mouseClick)
