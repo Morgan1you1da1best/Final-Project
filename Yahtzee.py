@@ -33,7 +33,6 @@ textfullhouse = TextAsset('Full House:' ,fill=black, style='8pt Times')
 textlargestraight = TextAsset('Large Str:' ,fill=black, style='8pt Times')
 textsmallstraight = TextAsset('Small Str:' ,fill=black, style='8pt Times')
 textYahtzee = TextAsset('Yahtzee:' ,fill=black, style='8pt Times')
-
 ####################### Die Roll ############################## (dice(dice#)(dot#))
 def numOne(xcord1):
         Sprite(blackCircle,(xcord1,150))
@@ -70,8 +69,7 @@ def numSix(xcord1,xcord2,xcord3,xcord4,xcord5,xcord6):
 
 def ones():
     count = data['dice'].count(1)
-    print('1:',count)
-    return True
+    data['scoreCard'][0] = [count]
 
 def twos():
     count = data['dice'].count(2)
@@ -104,8 +102,7 @@ def is3ofakind():
         if count == 3:
             print('3ofk:', sum(data['dice']))
             return True
-        else:
-            return False
+    return False
             
 def is4ofakind():
     for num in data['dice']:
@@ -113,35 +110,40 @@ def is4ofakind():
         if count == 4:
             print('4ofk:' ,sum(data['dice']))
             return True
-        else:
-            return False
+    return False
             
-def isfullhouse():                                           ############fullhouseproblems   
-    for num in data['dice']:
-        count1 = data['dice'].count(num)
-        if count1 == 3:
-            for num2 in data['dice']:
-                count2 = data['dice'].count(num2)
-                if count2 == 2:
-                    print('fh:','25')
-                    return True
-                else:
-                    return False
+def isfullhouse():        
+    data['dice'].sort() 
+    count1 = data['dice'].count(data['dice'][0])
+    count2 = data['dice'].count(data['dice'][4])
+    if (count1 == 3 and count2 == 2) or (count1 == 2 and count2 == 3):
+        print('fh:','25')
+        return True
+    else:
+        return False
             
 def issmallstraight():                              ####smallstraight problem
-        for num in data['dice']:
-            data['dice'].sort()
-            if data['dice'] == [1,2,3,4]:
-                print('smallstr:','30')
-                return True
-            else:
-                return False
+    data['dice'].sort()
+    if 1 in data['dice'] and 2 in data['dice'] and 3 in data['dice'] and 4 in data['dice']:
+        print('smallstr:','30')
+        return True
+    elif 2 in data['dice'] and 3 in data['dice'] and 4 in data['dice'] and 5 in data['dice']:
+        print('smallstr:','30')
+        return True
+    elif 3 in data['dice'] and 4 in data['dice'] and 5 in data['dice'] and 6 in data['dice']:
+        print('smallstr:','30')
+        return True
+    else:
+        return False
 
             
 def islargestraight():                                          
     for num in data['dice']:
         data['dice'].sort()
-        if data['dice'] == [1,2,3,4,5] or data['dice'] == [2,3,4,5,6]:
+        if data['dice'] == [1,2,3,4,5]:
+            print('lgstr:','40')
+            return True
+        elif data['dice'] == [2,3,4,5,6]:
             print('lgstr:','40')
             return True
         else:
@@ -169,19 +171,8 @@ def diceRoll():
 ########################Roll Button####################################
 def mouseClick(event):
     if event.x <= 750 and event.x >=650 and event.y <= 200 and event.y >= 100 and data['rollCount'] == []:
-        ones()
-        twos()
-        threes()
-        fours()
-        fives()
-        sixes()
-        is3ofakind()
-        is4ofakind()
-        isfullhouse()
-        issmallstraight()
-        islargestraight()
-        ischance()
-        isYahtzee()
+        print('turn is over')
+
     elif event.x <= 750 and event.x >=650 and event.y <= 200 and event.y >= 100:
         data['rollCount'].remove(1)
         diceRoll()
@@ -196,17 +187,17 @@ def mouseClick(event):
         x += 100
         
     redrawAll()
-##############################Score################################### How to approach the boards
-    y = 0
-    for dice in range(1,11):
-        if event.x >= 300 and event.x <= 320 and event.y >= 270+y and event.y <= 290+y:
-            print('gi')
-        y += 12
+##############################Score################################### H
+    if event.x >= 300 and event.x <= 370 and event.y >= 275 and event.y <= 290:
+        ones()
+        print('hi')
     
 #################################redrawAll################################
 def redrawAll():
     for item in App().spritelist[:]:
         item.destroy()
+        
+    oneScore = TextAsset(str(data['scoreCard'][0]) ,fill=black, style='8pt Times')
 
     Sprite(whiteRectangle,(100,100))
     Sprite(whiteRectangle,(200,100))
@@ -238,6 +229,7 @@ def redrawAll():
     
 ##################Card 2###################
     Sprite(textOne,(310,280))
+    Sprite(oneScore,(360,280))
     Sprite(textTwo,(310,300))
     Sprite(textThree,(310,320))
     Sprite(textFour,(310,340))
@@ -272,10 +264,10 @@ if __name__=='__main__':
     
 
     data = {}
-    data['dice'] = [2,2,2,5,5]
+    data['dice'] = [1,2,3,4,5]
     data['dicePick'] = [1,2,3,4,5]
     data['rollCount'] = [1,1,1]
-
+    data['scoreCard'] = [0]
     
     redrawAll()
     App().listenMouseEvent("click", mouseClick)
