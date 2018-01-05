@@ -190,7 +190,18 @@ def mouseClick(event):
 ##############################Score################################### H
     if event.x >= 300 and event.x <= 370 and event.y >= 275 and event.y <= 290:
         ones()
-        print('hi')
+    if event.x >= 300 and event.x <= 370 and event.y >= 275 and event.y <= 290:
+        twos()
+    if event.x >= 300 and event.x <= 370 and event.y >= 275 and event.y <= 290:
+        threes()
+    if event.x >= 300 and event.x <= 370 and event.y >= 275 and event.y <= 290:
+        fours()
+    if event.x >= 300 and event.x <= 370 and event.y >= 275 and event.y <= 290:
+        fives()
+    if event.x >= 300 and event.x <= 370 and event.y >= 275 and event.y <= 290:
+        sixes()
+    if event.x >= 300 and event.x <= 370 and event.y >= 275 and event.y <= 290:
+        sevens()
     
 #################################redrawAll################################
 def redrawAll():
@@ -198,7 +209,12 @@ def redrawAll():
         item.destroy()
         
     oneScore = TextAsset(str(data['scoreCard'][0]) ,fill=black, style='8pt Times')
-
+    TwoScore = TextAsset(str(data['scoreCard'][1][0]) ,fill=black, style='8pt Times')
+    ThreeScore = TextAsset(str(data['scoreCard'][2][0]) ,fill=black, style='8pt Times')
+    FourScore = TextAsset(str(data['scoreCard'][3][0]) ,fill=black, style='8pt Times')
+    FiveScore = TextAsset(str(data['scoreCard'][4][0]) ,fill=black, style='8pt Times')
+    SixScore = TextAsset(str(data['scoreCard'][5][0]) ,fill=black, style='8pt Times')
+    
     Sprite(whiteRectangle,(100,100))
     Sprite(whiteRectangle,(200,100))
     Sprite(whiteRectangle,(300,100))
@@ -267,7 +283,7 @@ if __name__=='__main__':
     data['dice'] = [1,2,3,4,5]
     data['dicePick'] = [1,2,3,4,5]
     data['rollCount'] = [1,1,1]
-    data['scoreCard'] = [0]
+    data['scoreCard'] = [[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0]]
     
     redrawAll()
     App().listenMouseEvent("click", mouseClick)
