@@ -73,12 +73,11 @@ def ones():
 
 def twos():
     count = data['dice'].count(2)
-    print('2:',count*2)
-    return True
-
+    data['scoreCard'][1][0] = [count]
+    
 def threes():
     count = data['dice'].count(3)
-    print('3:',count*3)
+    data['scoreCard'][2][0] = [count]
     return True
 
 def fours():
