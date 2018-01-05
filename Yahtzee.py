@@ -21,12 +21,12 @@ text = TextAsset('Yahtzee' ,fill=red, style='bold 40pt Times')
 titleCard = TextAsset('Player 1' ,fill=black, style='10pt Times')
 titleCard2 = TextAsset('Player 2' ,fill=black, style='10pt Times')
 textRoll = TextAsset('Roll' ,fill=black, style='20pt Verdana')
-textOne = TextAsset('Roll' ,fill=black, style='20pt Verdana')
-textTwo = TextAsset('Roll' ,fill=black, style='20pt Verdana')
-textThree = TextAsset('Roll' ,fill=black, style='20pt Verdana')
-textFour = TextAsset('Roll' ,fill=black, style='20pt Verdana')
-textFive = TextAsset('Roll' ,fill=black, style='20pt Verdana')
-textSix = TextAsset('Roll' ,fill=black, style='20pt Verdana')
+textOne = TextAsset('Ones:' ,fill=black, style='8pt Times')
+textTwo = TextAsset('Twos:' ,fill=black, style='8pt Times')
+textThree = TextAsset('Threes:' ,fill=black, style='8pt Times')
+textFour = TextAsset('Fours:' ,fill=black, style='8pt Times')
+textFive = TextAsset('Fives:' ,fill=black, style='8pt Times')
+textSix = TextAsset('Sixes:' ,fill=black, style='8pt Times')
 
 
 ####################### Die Roll ############################## (dice(dice#)(dot#))
@@ -66,6 +66,7 @@ def numSix(xcord1,xcord2,xcord3,xcord4,xcord5,xcord6):
 def ones():
     count = data['dice'].count(1)
     print('1:',count)
+    
 
 def twos():
     count = data['dice'].count(2)
@@ -92,24 +93,26 @@ def is3ofakind():
         count = data['dice'].count(num)
         if count == 3:
             print('3ofk:', sum(data['dice']))
-
+            return True
 def is4ofakind():
     for num in data['dice']:
         count = data['dice'].count(num)
         if count == 4:
             print('4ofk:' ,sum(data['dice']))
-        
+            return True
 def isfullhouse():
     for num in data['dice']:
         count = data['dice'].count(num)
         if count == 2 and count == 3:
             print('fh:',sum(data['dice']))
-
+            return True
+            
 def islargestraight():
         for num in data['dice']:
-        count = data['dice'].count(num)
-        if count == 2 and count == 3:
-            print('fh:',sum(data['dice']))
+            count = data['dice'].count(num)
+            if count == 1:
+                print('lgstr:',sum(data['dice']))
+            return True
     
 #########################Dice Roll###############################
 
@@ -160,7 +163,13 @@ def redrawAll():
     Sprite(titleCard2,(375,250))
     Sprite(text,(250,0))
     Sprite(textRoll,(675,135))
-    
+    Sprite(textOne,(60,280))
+    Sprite(textTwo,(100,290))
+    Sprite(textThree,(100,300))
+    Sprite(textFour,(100,310))
+    Sprite(textFive,(100,320))
+    Sprite(textSix,(100,330))
+
     x = 0
     for dice in data['dice']:
         if dice == 1:
