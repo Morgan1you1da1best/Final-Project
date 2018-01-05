@@ -57,6 +57,22 @@ def numSix(xcord1,xcord2,xcord3,xcord4,xcord5,xcord6):
         Sprite(blackCircle,(xcord5,150))
         Sprite(blackCircle,(xcord6,175))
 
+
+def is3ofakind():
+    for num in data['dice']:
+        test = data['dice'].count(6)
+        if test == 3:
+            print(data['dice'][:])
+
+def is4ofakind():
+    for num in data['dice']:
+        data['dice'].count(num)
+        print(data['dice'][:])
+        
+def isfullhouse():
+    for num in data['dice']:
+        data['dice'].count(num)
+        print(data['dice'][:])
 #########################Dice Roll###############################
 
 def diceRoll():
@@ -66,26 +82,18 @@ def diceRoll():
 
 ########################Roll Button####################################
 def mouseClick(event):
-    if event.x <= 750 and event.x >=650 and event.y <= 200 and event.y >= 100:
+    if event.x <= 750 and event.x >=650 and event.y <= 200 and event.y >= 100 and data['rollCount'] == []:
+        is3ofakind()
+        
+    elif event.x <= 750 and event.x >=650 and event.y <= 200 and event.y >= 100:
+        data['rollCount'].remove(1)
         diceRoll()
 #################################Pick Dice#############################
     x = 0
     for dice in range(1,6):
         if event.x >= 100+x and event.x <= 200+x and event.y >= 100 and event.y <= 200:
             data['dicePick'].remove(dice)
-            if 1 in data['dice']:
-                data['score'].append(1)
-            if 2 in data['dice']:
-                data['score'].append(2)
-            if 3 in data['dice']:
-                data['score'].append(3)
-            if 4 in data['dice']:
-                data['score'].append(4)
-            if 5 in data['dice']:
-                data['score'].append(5)
-            if 6 in data['dice']:
-                data['score'].append(6)
-                scoreCard()
+            print(data['dice'])
         x += 100
         
     redrawAll()
@@ -134,6 +142,7 @@ if __name__=='__main__':
     data = {}
     data['dice'] = [1,2,3,4,5]
     data['dicePick'] = [1,2,3,4,5]
+    data['rollCount'] = [1,1,1]
     data['score'] = [1,2,3,4,5,6]
 
     
