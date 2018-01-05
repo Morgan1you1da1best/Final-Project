@@ -21,6 +21,12 @@ text = TextAsset('Yahtzee' ,fill=red, style='bold 40pt Times')
 titleCard = TextAsset('Player 1' ,fill=black, style='10pt Times')
 titleCard2 = TextAsset('Player 2' ,fill=black, style='10pt Times')
 textRoll = TextAsset('Roll' ,fill=black, style='20pt Verdana')
+textOne = TextAsset('Roll' ,fill=black, style='20pt Verdana')
+textTwo = TextAsset('Roll' ,fill=black, style='20pt Verdana')
+textThree = TextAsset('Roll' ,fill=black, style='20pt Verdana')
+textFour = TextAsset('Roll' ,fill=black, style='20pt Verdana')
+textFive = TextAsset('Roll' ,fill=black, style='20pt Verdana')
+textSix = TextAsset('Roll' ,fill=black, style='20pt Verdana')
 
 
 ####################### Die Roll ############################## (dice(dice#)(dot#))
@@ -59,36 +65,52 @@ def numSix(xcord1,xcord2,xcord3,xcord4,xcord5,xcord6):
 
 def ones():
     count = data['dice'].count(1)
-    print(count)
+    print('1:',count)
 
 def twos():
     count = data['dice'].count(2)
-    print(count*2)
+    print('2:',count*2)
 
 def threes():
     count = data['dice'].count(3)
-    print(count*3)
+    print('3:',count*3)
 
-
+def fours():
+    count = data['dice'].count(4)
+    print('4:',count*4)
+    
+def fives():
+    count = data['dice'].count(5)
+    print('5:',count*5)
+    
+def sixes():
+    count = data['dice'].count(6)
+    print('6:',count*6)
+    
 def is3ofakind():
     for num in data['dice']:
         count = data['dice'].count(num)
         if count == 3:
-            print('3ofakind works bitchez')
-        
+            print('3ofk:', sum(data['dice']))
 
 def is4ofakind():
     for num in data['dice']:
         count = data['dice'].count(num)
         if count == 4:
-            print('4ofakind works bitchez')
+            print('4ofk:' ,sum(data['dice']))
         
 def isfullhouse():
     for num in data['dice']:
         count = data['dice'].count(num)
         if count == 2 and count == 3:
-            print('fullhouse works bitchez')
-        
+            print('fh:',sum(data['dice']))
+
+def islargestraight():
+        for num in data['dice']:
+        count = data['dice'].count(num)
+        if count == 2 and count == 3:
+            print('fh:',sum(data['dice']))
+    
 #########################Dice Roll###############################
 
 def diceRoll():
@@ -105,6 +127,9 @@ def mouseClick(event):
         ones()
         twos()
         threes()
+        fours()
+        fives()
+        sixes()
     elif event.x <= 750 and event.x >=650 and event.y <= 200 and event.y >= 100:
         data['rollCount'].remove(1)
         diceRoll()
