@@ -57,22 +57,38 @@ def numSix(xcord1,xcord2,xcord3,xcord4,xcord5,xcord6):
         Sprite(blackCircle,(xcord5,150))
         Sprite(blackCircle,(xcord6,175))
 
+def ones():
+    count = data['dice'].count(1)
+    print(count)
+
+def twos():
+    count = data['dice'].count(2)
+    print(count*2)
+
+def threes():
+    count = data['dice'].count(3)
+    print(count*3)
+
 
 def is3ofakind():
     for num in data['dice']:
-        test = data['dice'].count(6)
-        if test == 3:
-            print(data['dice'][:])
+        count = data['dice'].count(num)
+        if count == 3:
+            print('3ofakind works bitchez')
+        
 
 def is4ofakind():
     for num in data['dice']:
-        data['dice'].count(num)
-        print(data['dice'][:])
+        count = data['dice'].count(num)
+        if count == 4:
+            print('4ofakind works bitchez')
         
 def isfullhouse():
     for num in data['dice']:
-        data['dice'].count(num)
-        print(data['dice'][:])
+        count = data['dice'].count(num)
+        if count == 2 and count == 3:
+            print('fullhouse works bitchez')
+        
 #########################Dice Roll###############################
 
 def diceRoll():
@@ -84,7 +100,11 @@ def diceRoll():
 def mouseClick(event):
     if event.x <= 750 and event.x >=650 and event.y <= 200 and event.y >= 100 and data['rollCount'] == []:
         is3ofakind()
-        
+        is4ofakind()
+        isfullhouse()
+        ones()
+        twos()
+        threes()
     elif event.x <= 750 and event.x >=650 and event.y <= 200 and event.y >= 100:
         data['rollCount'].remove(1)
         diceRoll()
@@ -98,13 +118,10 @@ def mouseClick(event):
         
     redrawAll()
     
-def scoreCard():
-    print(data['score'][:])
 #################################redrawAll################################
 def redrawAll():
     for item in App().spritelist[:]:
         item.destroy()
-
 
     Sprite(whiteRectangle,(100,100))
     Sprite(whiteRectangle,(200,100))
@@ -143,7 +160,6 @@ if __name__=='__main__':
     data['dice'] = [1,2,3,4,5]
     data['dicePick'] = [1,2,3,4,5]
     data['rollCount'] = [1,1,1]
-    data['score'] = [1,2,3,4,5,6]
 
     
     redrawAll()
