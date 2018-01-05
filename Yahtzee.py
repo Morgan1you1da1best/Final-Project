@@ -32,7 +32,7 @@ text4ofakind = TextAsset('4 of a kind:' ,fill=black, style='8pt Times')
 textfullhouse = TextAsset('Full House:' ,fill=black, style='8pt Times')
 textlargestraight = TextAsset('Large Str:' ,fill=black, style='8pt Times')
 textsmallstraight = TextAsset('Small Str:' ,fill=black, style='8pt Times')
-textYahtzee = TextAsset('Yahtezz:' ,fill=black, style='8pt Times')
+textYahtzee = TextAsset('Yahtzee:' ,fill=black, style='8pt Times')
 
 ####################### Die Roll ############################## (dice(dice#)(dot#))
 def numOne(xcord1):
@@ -71,27 +71,32 @@ def numSix(xcord1,xcord2,xcord3,xcord4,xcord5,xcord6):
 def ones():
     count = data['dice'].count(1)
     print('1:',count)
-    
+    return True
 
 def twos():
     count = data['dice'].count(2)
     print('2:',count*2)
+    return True
 
 def threes():
     count = data['dice'].count(3)
     print('3:',count*3)
+    return True
 
 def fours():
     count = data['dice'].count(4)
     print('4:',count*4)
+    return True
     
 def fives():
     count = data['dice'].count(5)
     print('5:',count*5)
+    return True
     
 def sixes():
     count = data['dice'].count(6)
     print('6:',count*6)
+    return True
     
 def is3ofakind():
     for num in data['dice']:
@@ -99,6 +104,8 @@ def is3ofakind():
         if count == 3:
             print('3ofk:', sum(data['dice']))
             return True
+        else:
+            return False
             
 def is4ofakind():
     for num in data['dice']:
@@ -106,40 +113,52 @@ def is4ofakind():
         if count == 4:
             print('4ofk:' ,sum(data['dice']))
             return True
+        else:
+            return False
             
-def isfullhouse():                                              ###fullhouse problem
+def isfullhouse():                                           ############fullhouseproblems   
     for num in data['dice']:
         count1 = data['dice'].count(num)
         if count1 == 3:
             for num2 in data['dice']:
                 count2 = data['dice'].count(num2)
                 if count2 == 2:
-                     print('fh:','25')
-                     return True
+                    print('fh:','25')
+                    return True
+                else:
+                    return False
             
-def issmallstraight():    ####largestraight problem
+def issmallstraight():                              ####smallstraight problem
         for num in data['dice']:
             data['dice'].sort()
             if data['dice'] == [1,2,3,4]:
                 print('smallstr:','30')
                 return True
+            else:
+                return False
 
             
-def islargestraight():                                          ####largestraight problem
+def islargestraight():                                          
     for num in data['dice']:
         data['dice'].sort()
         if data['dice'] == [1,2,3,4,5] or data['dice'] == [2,3,4,5,6]:
             print('lgstr:','40')
             return True
+        else:
+            return False
 
 def ischance():
     print('chance:',sum(data['dice']))
+    return True
     
 def isYahtzee():
         for num in data['dice']:
             count = data['dice'].count(num)
             if count == 5:
                 print('Yahtezz:','100')
+                return True
+            else:
+                return False
 #########################Dice Roll###############################
 
 def diceRoll():
@@ -177,6 +196,12 @@ def mouseClick(event):
         x += 100
         
     redrawAll()
+##############################Score################################### How to approach the boards
+    y = 0
+    for dice in range(1,11):
+        if event.x >= 300 and event.x <= 320 and event.y >= 270+y and event.y <= 290+y:
+            print('gi')
+        y += 12
     
 #################################redrawAll################################
 def redrawAll():
@@ -210,6 +235,7 @@ def redrawAll():
     Sprite(textsmallstraight,(60,460))
     Sprite(textlargestraight,(60,480))
     Sprite(textYahtzee,(60,500))
+    
 ##################Card 2###################
     Sprite(textOne,(310,280))
     Sprite(textTwo,(310,300))
@@ -239,13 +265,14 @@ def redrawAll():
         if dice == 6:
             numSix(130+x,130+x,130+x,170+x,170+x,170+x)
         x += 100
-        
+
+
 
 if __name__=='__main__':
     
 
     data = {}
-    data['dice'] = [1,2,3,4,5]
+    data['dice'] = [2,2,2,5,5]
     data['dicePick'] = [1,2,3,4,5]
     data['rollCount'] = [1,1,1]
 
