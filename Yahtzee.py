@@ -27,7 +27,12 @@ textThree = TextAsset('Threes:' ,fill=black, style='8pt Times')
 textFour = TextAsset('Fours:' ,fill=black, style='8pt Times')
 textFive = TextAsset('Fives:' ,fill=black, style='8pt Times')
 textSix = TextAsset('Sixes:' ,fill=black, style='8pt Times')
-
+text3ofakind = TextAsset('3 of a kind:' ,fill=black, style='8pt Times')
+text4ofakind = TextAsset('4 of a kind:' ,fill=black, style='8pt Times')
+textfullhouse = TextAsset('Full House:' ,fill=black, style='8pt Times')
+textlargestraight = TextAsset('Large Str:' ,fill=black, style='8pt Times')
+textsmallstraight = TextAsset('Small Str:' ,fill=black, style='8pt Times')
+textYahtzee = TextAsset('Yahtezz:' ,fill=black, style='8pt Times')
 
 ####################### Die Roll ############################## (dice(dice#)(dot#))
 def numOne(xcord1):
@@ -94,26 +99,47 @@ def is3ofakind():
         if count == 3:
             print('3ofk:', sum(data['dice']))
             return True
+            
 def is4ofakind():
     for num in data['dice']:
         count = data['dice'].count(num)
         if count == 4:
             print('4ofk:' ,sum(data['dice']))
             return True
-def isfullhouse():
-    for num in data['dice']:
-        count = data['dice'].count(num)
-        if count == 2 and count == 3:
-            print('fh:',sum(data['dice']))
-            return True
             
-def islargestraight():
+def isfullhouse():                                              ###fullhouse problem
+    for num in data['dice']:
+        count1 = data['dice'].count(num)
+        if count1 == 3:
+            for num2 in data['dice']:
+                count2 = data['dice'].count(num2)
+                if count2 == 2:
+                     print('fh:','25')
+                     return True
+            
+def issmallstraight():    ####largestraight problem
+        for num in data['dice']:
+            data['dice'].sort()
+            if data['dice'] == [1,2,3,4]:
+                print('smallstr:','30')
+                return True
+
+            
+def islargestraight():                                          ####largestraight problem
+    for num in data['dice']:
+        data['dice'].sort()
+        if data['dice'] == [1,2,3,4,5] or data['dice'] == [2,3,4,5,6]:
+            print('lgstr:','40')
+            return True
+
+def ischance():
+    print('chance:',sum(data['dice']))
+    
+def isYahtzee():
         for num in data['dice']:
             count = data['dice'].count(num)
-            if count == 1:
-                print('lgstr:',sum(data['dice']))
-            return True
-    
+            if count == 5:
+                print('Yahtezz:','100')
 #########################Dice Roll###############################
 
 def diceRoll():
@@ -124,15 +150,19 @@ def diceRoll():
 ########################Roll Button####################################
 def mouseClick(event):
     if event.x <= 750 and event.x >=650 and event.y <= 200 and event.y >= 100 and data['rollCount'] == []:
-        is3ofakind()
-        is4ofakind()
-        isfullhouse()
         ones()
         twos()
         threes()
         fours()
         fives()
         sixes()
+        is3ofakind()
+        is4ofakind()
+        isfullhouse()
+        issmallstraight()
+        islargestraight()
+        ischance()
+        isYahtzee()
     elif event.x <= 750 and event.x >=650 and event.y <= 200 and event.y >= 100:
         data['rollCount'].remove(1)
         diceRoll()
@@ -142,6 +172,8 @@ def mouseClick(event):
         if event.x >= 100+x and event.x <= 200+x and event.y >= 100 and event.y <= 200:
             data['dicePick'].remove(dice)
             print(data['dice'])
+            if data['dicePick'] == []:
+                data['rollCount'] = []
         x += 100
         
     redrawAll()
@@ -163,12 +195,34 @@ def redrawAll():
     Sprite(titleCard2,(375,250))
     Sprite(text,(250,0))
     Sprite(textRoll,(675,135))
+    
+    
+####################Card 1#################
     Sprite(textOne,(60,280))
-    Sprite(textTwo,(100,290))
-    Sprite(textThree,(100,300))
-    Sprite(textFour,(100,310))
-    Sprite(textFive,(100,320))
-    Sprite(textSix,(100,330))
+    Sprite(textTwo,(60,300))
+    Sprite(textThree,(60,320))
+    Sprite(textFour,(60,340))
+    Sprite(textFive,(60,360))
+    Sprite(textSix,(60,380))
+    Sprite(text3ofakind,(60,400))
+    Sprite(text4ofakind,(60,420))
+    Sprite(textfullhouse,(60,440))
+    Sprite(textsmallstraight,(60,460))
+    Sprite(textlargestraight,(60,480))
+    Sprite(textYahtzee,(60,500))
+##################Card 2###################
+    Sprite(textOne,(310,280))
+    Sprite(textTwo,(310,300))
+    Sprite(textThree,(310,320))
+    Sprite(textFour,(310,340))
+    Sprite(textFive,(310,360))
+    Sprite(textSix,(310,380))
+    Sprite(text3ofakind,(310,400))
+    Sprite(text4ofakind,(310,420))
+    Sprite(textfullhouse,(310,440))
+    Sprite(textsmallstraight,(310,460))
+    Sprite(textlargestraight,(310,480))
+    Sprite(textYahtzee,(310,500))
 
     x = 0
     for dice in data['dice']:
