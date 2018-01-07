@@ -278,10 +278,10 @@ def mouseClick(event):
     x = 0
     for dice in range(1,6):
         if event.x >= 100+x and event.x <= 200+x and event.y >= 100 and event.y <= 200:
-            if dice in data['dicePick']:
-                data['dicePick'].remove(dice)
             if dice not in data['dicePick']:
                 data['dicePick'].append(dice)
+            if dice in data['dicePick']:
+                data['dicePick'].remove(dice)
             if data['dicePick'] == []:
                 data['rollCount'] = []
         x += 100
