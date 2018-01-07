@@ -142,6 +142,7 @@ def issmallstraight():                              ####smallstraight problem
         return True
     else:
         return False
+        
 def islargestraight():                                          
     for num in data['dice']:
         data['dice'].sort()
@@ -155,6 +156,7 @@ def islargestraight():
             return True
         else:
             return False
+            
 def ischance():
     print('chance:',sum(data['dice']))
     data['scoreCard'][11][0] = [sum(data['dice'])]
@@ -169,8 +171,6 @@ def isYahtzee():
                 return True
             else:
                 return False
-            
-            
 ###############################Scoring Function#2 ##############################
             
 def ones2():
@@ -243,7 +243,6 @@ def issmallstraight2():
     else:
         return False
 
-            
 def islargestraight2():                                          
     for num in data['dice']:
         data['dice'].sort()
