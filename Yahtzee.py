@@ -67,6 +67,9 @@ def numSix(xcord1,xcord2,xcord3,xcord4,xcord5,xcord6):
         Sprite(blackCircle,(xcord5,150))
         Sprite(blackCircle,(xcord6,175))
 
+
+###################################Scoring Functions#######################
+
 def ones():
     count = data['dice'].count(1)
     data['scoreCard'][0] = [count]
@@ -197,24 +200,44 @@ def mouseClick(event):
         x += 100
         
     redrawAll()
-##############################Score - Card #2################################### H
-    if event.x >= 360 and event.x <= 380 and event.y >= 275 and event.y <= 290:
+###################################Score - Card #1#############################
+    if event.x >= 60 and event.x <= 80 and event.y >= 275 and event.y <= 290:
         ones()
         endTurn()
-    if event.x >= 360 and event.x <= 380 and event.y >= 295 and event.y <= 310:
+    if event.x >= 60 and event.x <= 80 and event.y >= 295 and event.y <= 310:
         twos()
         endTurn()
-    if event.x >= 360 and event.x <= 380 and event.y >= 315 and event.y <= 330:
+    if event.x >= 60 and event.x <= 80 and event.y >= 315 and event.y <= 330:
         threes()
         endTurn()
-    if event.x >= 360 and event.x <= 380 and event.y >= 335 and event.y <= 350:
+    if event.x >= 60 and event.x <= 80 and event.y >= 335 and event.y <= 350:
         fours()
         endTurn()
-    if event.x >= 360 and event.x <= 380 and event.y >= 355 and event.y <= 370:
+    if event.x >= 60 and event.x <= 80 and event.y >= 355 and event.y <= 370:
         fives()
         endTurn()
-    if event.x >= 360 and event.x <= 380 and event.y >= 375 and event.y <= 390:
+    if event.x >= 60 and event.x <= 80 and event.y >= 375 and event.y <= 390:
         sixes()
+        endTurn()
+    
+##############################Score - Card #2################################### 
+    if event.x >= 360 and event.x <= 380 and event.y >= 275 and event.y <= 290:
+        ones2()
+        endTurn()
+    if event.x >= 360 and event.x <= 380 and event.y >= 295 and event.y <= 310:
+        twos2()
+        endTurn()
+    if event.x >= 360 and event.x <= 380 and event.y >= 315 and event.y <= 330:
+        threes2()
+        endTurn()
+    if event.x >= 360 and event.x <= 380 and event.y >= 335 and event.y <= 350:
+        fours2()
+        endTurn()
+    if event.x >= 360 and event.x <= 380 and event.y >= 355 and event.y <= 370:
+        fives2()
+        endTurn()
+    if event.x >= 360 and event.x <= 380 and event.y >= 375 and event.y <= 390:
+        sixes2()
         endTurn()
     
 #################################redrawAll################################
@@ -222,7 +245,7 @@ def redrawAll():
     for item in App().spritelist[:]:
         item.destroy()
         
-    oneScore = TextAsset(str(data['scoreCard'][0]) ,fill=black, style='8pt Times')
+    oneScore = TextAsset(str(data['scoreCard'][0][0]) ,fill=black, style='8pt Times')
     twoScore = TextAsset(str(data['scoreCard'][1][0]) ,fill=black, style='8pt Times')
     threeScore = TextAsset(str(data['scoreCard'][2][0]) ,fill=black, style='8pt Times')
     fourScore = TextAsset(str(data['scoreCard'][3][0]) ,fill=black, style='8pt Times')
@@ -245,11 +268,17 @@ def redrawAll():
     
 ####################Card 1#################
     Sprite(textOne,(60,280))
+    Sprite(oneScore,(110,280))
     Sprite(textTwo,(60,300))
+    Sprite(twoScore,(110,300))
     Sprite(textThree,(60,320))
+    Sprite(threeScore,(110,320))
     Sprite(textFour,(60,340))
+    Sprite(fourScore,(110,340))
     Sprite(textFive,(60,360))
+    Sprite(fiveScore,(110,360))
     Sprite(textSix,(60,380))
+    Sprite(sixScore,(110,380))
     Sprite(text3ofakind,(60,400))
     Sprite(text4ofakind,(60,420))
     Sprite(textfullhouse,(60,440))
