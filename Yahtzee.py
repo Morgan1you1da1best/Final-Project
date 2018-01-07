@@ -201,22 +201,22 @@ def mouseClick(event):
         
     redrawAll()
 ###################################Score - Card #1#############################
-    if event.x >= 60 and event.x <= 80 and event.y >= 275 and event.y <= 290:
+    if event.x >= 110 and event.x <= 120 and event.y >= 275 and event.y <= 290:
         ones()
         endTurn()
-    if event.x >= 60 and event.x <= 80 and event.y >= 295 and event.y <= 310:
+    if event.x >= 110 and event.x <= 120 and event.y >= 295 and event.y <= 310:
         twos()
         endTurn()
-    if event.x >= 60 and event.x <= 80 and event.y >= 315 and event.y <= 330:
+    if event.x >= 110 and event.x <= 120 and event.y >= 315 and event.y <= 330:
         threes()
         endTurn()
-    if event.x >= 60 and event.x <= 80 and event.y >= 335 and event.y <= 350:
+    if event.x >= 110 and event.x <= 120 and event.y >= 335 and event.y <= 350:
         fours()
         endTurn()
-    if event.x >= 60 and event.x <= 80 and event.y >= 355 and event.y <= 370:
+    if event.x >= 110 and event.x <= 120 and event.y >= 355 and event.y <= 370:
         fives()
         endTurn()
-    if event.x >= 60 and event.x <= 80 and event.y >= 375 and event.y <= 390:
+    if event.x >= 110 and event.x <= 120 and event.y >= 375 and event.y <= 390:
         sixes()
         endTurn()
     
