@@ -78,22 +78,18 @@ def twos():
 def threes():
     count = data['dice'].count(3)
     data['scoreCard'][2][0] = [count]
-    return True
 
 def fours():
     count = data['dice'].count(4)
-    print('4:',count*4)
-    return True
+    data['scoreCard'][3][0] = [count]
     
 def fives():
     count = data['dice'].count(5)
-    print('5:',count*5)
-    return True
+    data['scoreCard'][4][0] = [count]
     
 def sixes():
     count = data['dice'].count(6)
-    print('6:',count*6)
-    return True
+    data['scoreCard'][5][0] = [count]
     
 def is3ofakind():
     for num in data['dice']:
@@ -160,6 +156,21 @@ def isYahtzee():
                 return True
             else:
                 return False
+                
+############################End Turn#############################          
+def endTurn():
+    data['rollCount'].append(1)
+    data['rollCount'].append(1)
+    data['rollCount'].append(1)
+    data['dicePick'].append(1)
+    data['dicePick'].append(2)
+    data['dicePick'].append(3)
+    data['dicePick'].append(4)
+    data['dicePick'].append(5)
+    print('Turn is over')
+                
+                
+
 #########################Dice Roll###############################
 
 def diceRoll():
@@ -170,7 +181,7 @@ def diceRoll():
 ########################Roll Button####################################
 def mouseClick(event):
     if event.x <= 750 and event.x >=650 and event.y <= 200 and event.y >= 100 and data['rollCount'] == []:
-        print('turn is over')
+        print('0 rolls left')
 
     elif event.x <= 750 and event.x >=650 and event.y <= 200 and event.y >= 100:
         data['rollCount'].remove(1)
@@ -186,21 +197,25 @@ def mouseClick(event):
         x += 100
         
     redrawAll()
-##############################Score################################### H
-    if event.x >= 300 and event.x <= 370 and event.y >= 275 and event.y <= 290:
+##############################Score - Card #2################################### H
+    if event.x >= 360 and event.x <= 380 and event.y >= 275 and event.y <= 290:
         ones()
-    if event.x >= 300 and event.x <= 370 and event.y >= 275 and event.y <= 290:
+        endTurn()
+    if event.x >= 360 and event.x <= 380 and event.y >= 295 and event.y <= 310:
         twos()
-    if event.x >= 300 and event.x <= 370 and event.y >= 275 and event.y <= 290:
+        endTurn()
+    if event.x >= 360 and event.x <= 380 and event.y >= 315 and event.y <= 330:
         threes()
-    if event.x >= 300 and event.x <= 370 and event.y >= 275 and event.y <= 290:
+        endTurn()
+    if event.x >= 360 and event.x <= 380 and event.y >= 335 and event.y <= 350:
         fours()
-    if event.x >= 300 and event.x <= 370 and event.y >= 275 and event.y <= 290:
+        endTurn()
+    if event.x >= 360 and event.x <= 380 and event.y >= 355 and event.y <= 370:
         fives()
-    if event.x >= 300 and event.x <= 370 and event.y >= 275 and event.y <= 290:
+        endTurn()
+    if event.x >= 360 and event.x <= 380 and event.y >= 375 and event.y <= 390:
         sixes()
-    if event.x >= 300 and event.x <= 370 and event.y >= 275 and event.y <= 290:
-        sevens()
+        endTurn()
     
 #################################redrawAll################################
 def redrawAll():
@@ -208,11 +223,11 @@ def redrawAll():
         item.destroy()
         
     oneScore = TextAsset(str(data['scoreCard'][0]) ,fill=black, style='8pt Times')
-    TwoScore = TextAsset(str(data['scoreCard'][1][0]) ,fill=black, style='8pt Times')
-    ThreeScore = TextAsset(str(data['scoreCard'][2][0]) ,fill=black, style='8pt Times')
-    FourScore = TextAsset(str(data['scoreCard'][3][0]) ,fill=black, style='8pt Times')
-    FiveScore = TextAsset(str(data['scoreCard'][4][0]) ,fill=black, style='8pt Times')
-    SixScore = TextAsset(str(data['scoreCard'][5][0]) ,fill=black, style='8pt Times')
+    twoScore = TextAsset(str(data['scoreCard'][1][0]) ,fill=black, style='8pt Times')
+    threeScore = TextAsset(str(data['scoreCard'][2][0]) ,fill=black, style='8pt Times')
+    fourScore = TextAsset(str(data['scoreCard'][3][0]) ,fill=black, style='8pt Times')
+    fiveScore = TextAsset(str(data['scoreCard'][4][0]) ,fill=black, style='8pt Times')
+    sixScore = TextAsset(str(data['scoreCard'][5][0]) ,fill=black, style='8pt Times')
     
     Sprite(whiteRectangle,(100,100))
     Sprite(whiteRectangle,(200,100))
@@ -246,10 +261,15 @@ def redrawAll():
     Sprite(textOne,(310,280))
     Sprite(oneScore,(360,280))
     Sprite(textTwo,(310,300))
+    Sprite(twoScore,(360,300))
     Sprite(textThree,(310,320))
+    Sprite(threeScore,(360,320))
     Sprite(textFour,(310,340))
+    Sprite(fourScore,(360,340))
     Sprite(textFive,(310,360))
+    Sprite(fiveScore,(360,360))
     Sprite(textSix,(310,380))
+    Sprite(sixScore,(360,380))
     Sprite(text3ofakind,(310,400))
     Sprite(text4ofakind,(310,420))
     Sprite(textfullhouse,(310,440))
