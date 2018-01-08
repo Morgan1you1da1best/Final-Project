@@ -4,13 +4,13 @@
 
 from random import randint
 from ggame import*
-
+##############################Colors###########################
 red = Color(0xFF0000,1)
 green = Color(0x38AD00,1)
 blue = Color(0x0000FF,1)
 black = Color(0x000000,1)
 white = Color(0xFFFFFF,1)
-
+############################Consistant Text/Graphics##################
 blackOutline = LineStyle(1,black) #pixels, color
 whiteRectangle = RectangleAsset(100,100,blackOutline,white) #Width, height, outline, fill.
 greenRectangle = RectangleAsset(1000,1000,blackOutline,green) #Width, height, outline, fill.
@@ -34,8 +34,9 @@ textlargestraight = TextAsset('Large Str:' ,fill=black, style='8pt Times')
 textsmallstraight = TextAsset('Small Str:' ,fill=black, style='8pt Times')
 textchance = TextAsset('Chance:' ,fill=black, style='8pt Times')
 textYahtzee = TextAsset('Yahtzee:' ,fill=black, style='8pt Times')
+texttotal = TextAsset('Total:' ,fill=black, style='8pt Times')
 print('Roll the dice!')
-####################### Die Roll ############################## 
+####################### Die Roll ############################## Black Dot Sprite Pos.
 def numOne(xcord1):
         Sprite(blackCircle,(xcord1,150))
 
@@ -78,29 +79,29 @@ def ones():
 
 def twos():
     count = data['dice'].count(2)
-    data['scoreCard'][1][0] = [count]
+    data['scoreCard'][1] = [count*2]
     
 def threes():
     count = data['dice'].count(3)
-    data['scoreCard'][2][0] = [count]
+    data['scoreCard'][2] = [count*3]
 
 def fours():
     count = data['dice'].count(4)
-    data['scoreCard'][3][0] = [count]
+    data['scoreCard'][3] = [count*4]
     
 def fives():
     count = data['dice'].count(5)
-    data['scoreCard'][4][0] = [count]
+    data['scoreCard'][4] = [count*5]
     
 def sixes():
     count = data['dice'].count(6)
-    data['scoreCard'][5][0] = [count]
+    data['scoreCard'][5] = [count*6]
     
 def is3ofakind():
     for num in data['dice']:
         count = data['dice'].count(num)
         if count == 3 or count == 4 or count == 5:
-            data['scoreCard'][6][0] = [sum(data['dice'])]
+            data['scoreCard'][6] = [sum(data['dice'])]
             return True
     return False
             
@@ -108,7 +109,7 @@ def is4ofakind():
     for num in data['dice']:
         count = data['dice'].count(num)
         if count == 4 or count == 5:
-            data['scoreCard'][7][0] = [sum(data['dice'])]
+            data['scoreCard'][7] = [sum(data['dice'])]
             return True
     return False
             
@@ -117,7 +118,7 @@ def isfullhouse():
     count1 = data['dice'].count(data['dice'][0])
     count2 = data['dice'].count(data['dice'][4])
     if (count1 == 3 and count2 == 2) or (count1 == 2 and count2 == 3):
-        data['scoreCard'][8][0] = [25]
+        data['scoreCard'][8] = [25]
         return True
     else:
         return False
@@ -125,13 +126,13 @@ def isfullhouse():
 def issmallstraight():                             
     data['dice'].sort()
     if 1 in data['dice'] and 2 in data['dice'] and 3 in data['dice'] and 4 in data['dice']:
-        data['scoreCard'][9][0] = [30]
+        data['scoreCard'][9] = [30]
         return True
     elif 2 in data['dice'] and 3 in data['dice'] and 4 in data['dice'] and 5 in data['dice']:
-        data['scoreCard'][9][0] = [30]
+        data['scoreCard'][9] = [30]
         return True
     elif 3 in data['dice'] and 4 in data['dice'] and 5 in data['dice'] and 6 in data['dice']:
-        data['scoreCard'][9][0] = [30]
+        data['scoreCard'][9] = [30]
         return True
     else:
         return False
@@ -140,24 +141,24 @@ def islargestraight():
     for num in data['dice']:
         data['dice'].sort()
         if data['dice'] == [1,2,3,4,5]:
-            data['scoreCard'][10][0] = [40]
+            data['scoreCard'][10] = [40]
             return True
         elif data['dice'] == [2,3,4,5,6]:
-            data['scoreCard'][10][0] = [40]
+            data['scoreCard'][10] = [40]
             return True
         else:
             return False
             
 def ischance():
     print('chance:',sum(data['dice']))
-    data['scoreCard'][11][0] = [sum(data['dice'])]
+    data['scoreCard'][11] = [sum(data['dice'])]
     return True
     
 def isYahtzee():
         for num in data['dice']:
             count = data['dice'].count(num)
             if count == 5:
-                data['scoreCard'][12][0] = [50]
+                data['scoreCard'][12] = [50]
                 return True
             else:
                 return False
@@ -169,29 +170,29 @@ def ones2():
 
 def twos2():
     count = data['dice'].count(2)
-    data['scoreCard2'][1][0] = [count]
+    data['scoreCard2'][1] = [count*2]
     
 def threes2():
     count = data['dice'].count(3)
-    data['scoreCard2'][2][0] = [count]
+    data['scoreCard2'][2] = [count*3]
 
 def fours2():
     count = data['dice'].count(4)
-    data['scoreCard2'][3][0] = [count]
+    data['scoreCard2'][3] = [count*4]
     
 def fives2():
     count = data['dice'].count(5)
-    data['scoreCard2'][4][0] = [count]
+    data['scoreCard2'][4] = [count*5]
     
 def sixes2():
     count = data['dice'].count(6)
-    data['scoreCard2'][5][0] = [count]
+    data['scoreCard2'][5] = [count*6]
     
 def is3ofakind2():
     for num in data['dice']:
         count = data['dice'].count(num)
         if count == 3 or count == 4 or count == 5:
-            data['scoreCard2'][6][0] = [sum(data['dice'])]
+            data['scoreCard2'][6] = [sum(data['dice'])]
             return True
     return False
             
@@ -199,7 +200,7 @@ def is4ofakind2():
     for num in data['dice']:
         count = data['dice'].count(num)
         if count == 4 or count == 5:
-            data['scoreCard2'][7][0] = [sum(data['dice'])]
+            data['scoreCard2'][7] = [sum(data['dice'])]
             return True
     return False
             
@@ -208,7 +209,7 @@ def isfullhouse2():
     count1 = data['dice'].count(data['dice'][0])
     count2 = data['dice'].count(data['dice'][4])
     if (count1 == 3 and count2 == 2) or (count1 == 2 and count2 == 3):
-        data['scoreCard2'][8][0] = [25]
+        data['scoreCard2'][8] = [25]
         return True
     else:
         return False
@@ -216,13 +217,13 @@ def isfullhouse2():
 def issmallstraight2():         
     data['dice'].sort()
     if 1 in data['dice'] and 2 in data['dice'] and 3 in data['dice'] and 4 in data['dice']:
-        data['scoreCard2'][9][0] = [30]
+        data['scoreCard2'][9] = [30]
         return True
     elif 2 in data['dice'] and 3 in data['dice'] and 4 in data['dice'] and 5 in data['dice']:
-        data['scoreCard2'][9][0] = [30]
+        data['scoreCard2'][9] = [30]
         return True
     elif 3 in data['dice'] and 4 in data['dice'] and 5 in data['dice'] and 6 in data['dice']:
-        data['scoreCard2'][9][0] = [30]
+        data['scoreCard2'][9] = [30]
         return True
     else:
         return False
@@ -231,41 +232,44 @@ def islargestraight2():
     for num in data['dice']:
         data['dice'].sort()
         if data['dice'] == [1,2,3,4,5]:
-            data['scoreCard2'][10][0] = [40]
+            data['scoreCard2'][10] = [40]
             return True
         elif data['dice'] == [2,3,4,5,6]:
-            data['scoreCard2'][10][0] = [40]
+            data['scoreCard2'][10] = [40]
             return True
         else:
             return False
 
 def ischance2():
     print('chance:',sum(data['dice']))
-    data['scoreCard2'][11][0] = [sum(data['dice'])] 
+    data['scoreCard2'][11] = [sum(data['dice'])] 
     return True
     
 def isYahtzee2():
         for num in data['dice']:
             count = data['dice'].count(num)
             if count == 5:
-                data['scoreCard2'][12][0] = [50]
+                data['scoreCard2'][12] = [50]
                 return True
             else:
                 return False
-############################End Turn#############################          
+############################End Turn############################# Ends turn. Adds to lists inorder to go again.       
 def endTurn():
     data['rollCount'] = [1,1,1]
     data['dicePick'] = [1,2,3,4,5]
     print('Next player turn!')
 
-#########################Dice Roll###############################
-
+#########################Dice Roll############################### Randomizes and Rolls dice
 def diceRoll():
     for num in range(0,5):
         if num+1 in data['dicePick']:
             data['dice'][num] = randint(1,6)
+    
+def gameOver():
+    print(data['scoreCard'][:][:])
+    print(data['scoreCard2'][:][:])
 
-########################Roll Button####################################
+########################Roll Button#################################### Cords for pressing 'Roll'
 def mouseClick(event):
     if event.x <= 750 and event.x >=650 and event.y <= 200 and event.y >= 100 and data['rollCount'] == []:
         print('0 rolls left')
@@ -274,12 +278,10 @@ def mouseClick(event):
     elif event.x <= 750 and event.x >=650 and event.y <= 200 and event.y >= 100:
         data['rollCount'].remove(1)
         diceRoll()
-#################################Pick Dice#############################
+#################################Pick Dice############################# Pick the dice you want to play
     x = 0
     for dice in range(1,6):
         if event.x >= 100+x and event.x <= 200+x and event.y >= 100 and event.y <= 200:
-            if dice not in data['dicePick']:
-                data['dicePick'].append(dice)
             if dice in data['dicePick']:
                 data['dicePick'].remove(dice)
             if data['dicePick'] == []:
@@ -287,13 +289,8 @@ def mouseClick(event):
         x += 100
         
     redrawAll()
-################################Unpick Dice##################################
-    
-    for dice in range(1,6):
-        if event.x >= 100+x and event.x <= 200+x and event.y >= 100 and event.y <= 200:
-            data['dicePick'].append(dice)
-    x += 100
-###################################Score - Card #1 Select#############################
+
+###################################Score - Card #1 Select############################# Select which score catagory 
     if event.x >= 110 and event.x <= 120 and event.y >= 275 and event.y <= 290:
         ones()
         endTurn()
@@ -327,13 +324,15 @@ def mouseClick(event):
     if event.x >= 120 and event.x <= 130 and event.y >= 475 and event.y <= 490 and islargestraight() == True:
         islargestraight()
         endTurn()
-    if event.x >= 120 and event.x <= 130 and event.y >= 495 and event.y <= 510 and isYahtzee() == True:
+    if event.x >= 120 and event.x <= 130 and event.y >= 495 and event.y <= 510 and ischance() == True:
         ischance()
         endTurn()
     if event.x >= 120 and event.x <= 130 and event.y >= 515 and event.y <= 530 and isYahtzee() == True:
         isYahtzee()
         endTurn()
-##############################Score - Card #2 Select################################### 
+    if event.x >= 150 and event.x <= 170 and event.y >= 270 and event.y <= 290:
+        gameOver()
+##############################Score - Card #2 Select################################### Pick which score catagory
 
     if event.x >= 360 and event.x <= 380 and event.y >= 275 and event.y <= 290:
         ones2()
@@ -392,6 +391,7 @@ def redrawAll():
     islargestraightScore = TextAsset(str(data['scoreCard'][10][0]) ,fill=black, style='8pt Times')
     ischanceScore = TextAsset(str(data['scoreCard'][11][0]) ,fill=black, style='8pt Times')
     isyahtzeeScore = TextAsset(str(data['scoreCard'][12][0]) ,fill=black, style='8pt Times')
+    sumPlayer1 = TextAsset(sum(data['scoreCard'][:][0]) ,fill=black, style='8pt Times')
     
     oneScore2 = TextAsset(str(data['scoreCard2'][0][0]) ,fill=black, style='8pt Times')
     twoScore2 = TextAsset(str(data['scoreCard2'][1][0]) ,fill=black, style='8pt Times')
@@ -406,6 +406,8 @@ def redrawAll():
     islargestraightScore2 = TextAsset(str(data['scoreCard2'][10][0]) ,fill=black, style='8pt Times')
     ischanceScore2 = TextAsset(str(data['scoreCard2'][11][0]) ,fill=black, style='8pt Times')
     isyahtzeeScore2 = TextAsset(str(data['scoreCard2'][12][0]) ,fill=black, style='8pt Times')
+    sumPlayer2 = TextAsset(sum(data['scoreCard2'][:][:]) ,fill=black, style='8pt Times')
+    
     
     Sprite(greenRectangle,(0,0))
     Sprite(whiteRectangle,(100,100))
@@ -422,7 +424,7 @@ def redrawAll():
     Sprite(textRoll,(675,135))
     
     
-####################Card 1#################
+####################Card 1################# Sprites
     Sprite(textOne,(60,280))
     Sprite(oneScore,(110,280))
     Sprite(textTwo,(60,300))
@@ -449,8 +451,9 @@ def redrawAll():
     Sprite(ischanceScore,(120,500))
     Sprite(textYahtzee,(60,520))
     Sprite(isyahtzeeScore,(120,520))
-    
-##################Card 2###################
+    Sprite(texttotal,(130,280))
+    Sprite(sumPlayer1, (160,280))
+##################Card 2################### Sprites
     Sprite(textOne,(310,280))
     Sprite(oneScore2,(360,280))
     Sprite(textTwo,(310,300))
@@ -477,6 +480,8 @@ def redrawAll():
     Sprite(ischanceScore2,(370,500))
     Sprite(textYahtzee,(310,520))
     Sprite(isyahtzeeScore2,(370,520))
+    Sprite(texttotal,(390,280))
+    Sprite(sumPlayer2, (420,280))
 
     x = 0
     for dice in data['dice']:
@@ -499,12 +504,12 @@ if __name__=='__main__':
     
 
     data = {}
-    data['dice'] = [0,0,0,0,0]
+    data['dice'] = [1,1,1,1,1]
     data['dicePick'] = [1,2,3,4,5]
     data['rollCount'] = [1,1,1]
     data['scoreCard'] = [[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0]]
     data['scoreCard2'] = [[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0]]
-    
+ 
     redrawAll()
     App().listenMouseEvent("click", mouseClick)
     App().run()
