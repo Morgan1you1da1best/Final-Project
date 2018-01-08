@@ -391,7 +391,7 @@ def redrawAll():
     islargestraightScore = TextAsset(str(data['scoreCard'][10][0]) ,fill=black, style='8pt Times')
     ischanceScore = TextAsset(str(data['scoreCard'][11][0]) ,fill=black, style='8pt Times')
     isyahtzeeScore = TextAsset(str(data['scoreCard'][12][0]) ,fill=black, style='8pt Times')
-    sumPlayer1 = TextAsset(sum(data['scoreCard'][:][0]) ,fill=black, style='8pt Times')
+    sumPlayer1 = TextAsset(sum(data['scoreCard'][:][0]+data['scoreCard'][:][1]+data['scoreCard'][:][2]+data['scoreCard'][:][3]+data['scoreCard'][:][4]+data['scoreCard'][:][5]+data['scoreCard'][:][6]+data['scoreCard'][:][7]+data['scoreCard'][:][8]+data['scoreCard'][:][9]+data['scoreCard'][:][10]+data['scoreCard'][:][11]) ,fill=black, style='8pt Times')
     
     oneScore2 = TextAsset(str(data['scoreCard2'][0][0]) ,fill=black, style='8pt Times')
     twoScore2 = TextAsset(str(data['scoreCard2'][1][0]) ,fill=black, style='8pt Times')
@@ -406,7 +406,7 @@ def redrawAll():
     islargestraightScore2 = TextAsset(str(data['scoreCard2'][10][0]) ,fill=black, style='8pt Times')
     ischanceScore2 = TextAsset(str(data['scoreCard2'][11][0]) ,fill=black, style='8pt Times')
     isyahtzeeScore2 = TextAsset(str(data['scoreCard2'][12][0]) ,fill=black, style='8pt Times')
-    sumPlayer2 = TextAsset(sum(data['scoreCard2'][:][:]) ,fill=black, style='8pt Times')
+    sumPlayer2 = TextAsset(sum(data['scoreCard2'][:][0]+data['scoreCard2'][:][1]+data['scoreCard2'][:][2]+data['scoreCard2'][:][3]+data['scoreCard2'][:][4]+data['scoreCard2'][:][5]+data['scoreCard2'][:][6]+data['scoreCard2'][:][7]+data['scoreCard2'][:][8]+data['scoreCard2'][:][9]+data['scoreCard2'][:][10]+data['scoreCard2'][:][11]) ,fill=black, style='8pt Times')
     
     
     Sprite(greenRectangle,(0,0))
