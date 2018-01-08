@@ -503,7 +503,7 @@ if __name__=='__main__':
     
 
     data = {}
-    data['dice'] = [1,2,3,4,5]
+    data['dice'] = [0,0,0,0,0]
     data['dicePick'] = [1,2,3,4,5]
     data['rollCount'] = [1,1,1]
     data['scoreCard'] = [[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0]]
