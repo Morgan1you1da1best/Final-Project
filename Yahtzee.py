@@ -150,7 +150,6 @@ def islargestraight():
             return False
             
 def ischance():
-    print('chance:',sum(data['dice']))
     data['scoreCard'][11] = [sum(data['dice'])]
     return True
     
@@ -352,25 +351,25 @@ def mouseClick(event):
     if event.x >= 360 and event.x <= 380 and event.y >= 375 and event.y <= 390:
         sixes2()
         endTurn()
-    if event.x >= 370 and event.x <= 390 and event.y >= 395 and event.y <= 410 and is3ofakind2() == True:
+    if event.x >= 370 and event.x <= 390 and event.y >= 395 and event.y <= 410:
         is3ofakind2()
         endTurn()
-    if event.x >= 370 and event.x <= 390 and event.y >= 415 and event.y <= 430 and is4ofakind2() == True:
+    if event.x >= 370 and event.x <= 390 and event.y >= 415 and event.y <= 430:
         is4ofakind2()
         endTurn()
-    if event.x >= 370 and event.x <= 390 and event.y >= 435 and event.y <= 450 and isfullhouse2() == True:
+    if event.x >= 370 and event.x <= 390 and event.y >= 435 and event.y <= 450:
         isfullhouse2()
         endTurn()
-    if event.x >= 370 and event.x <= 390 and event.y >= 455 and event.y <= 470 and issmallstraight2() == True:
+    if event.x >= 370 and event.x <= 390 and event.y >= 455 and event.y <= 470:
         issmallstraight2()
         endTurn()
-    if event.x >= 370 and event.x <= 390 and event.y >= 475 and event.y <= 490 and islargestraight2() == True:
+    if event.x >= 370 and event.x <= 390 and event.y >= 475 and event.y <= 490:
         islargestraight2()
         endTurn()
-    if event.x >= 370 and event.x <= 390 and event.y >= 495 and event.y <= 510 and ischance2() == True:
+    if event.x >= 370 and event.x <= 390 and event.y >= 495 and event.y <= 510:
         ischance2()
         endTurn()  
-    if event.x >= 370 and event.x <= 390 and event.y >= 515 and event.y <= 530 and isYahtzee2() == True:
+    if event.x >= 370 and event.x <= 390 and event.y >= 515 and event.y <= 530:
         isYahtzee2()
         endTurn()
 #################################redrawAll################################
@@ -504,7 +503,7 @@ if __name__=='__main__':
     
 
     data = {}
-    data['dice'] = [1,1,1,1,1]
+    data['dice'] = [1,2,3,4,5]
     data['dicePick'] = [1,2,3,4,5]
     data['rollCount'] = [1,1,1]
     data['scoreCard'] = [[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0]]
