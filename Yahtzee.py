@@ -409,12 +409,12 @@ def redrawAll():
     
     
     Sprite(greenRectangle,(0,0))
-    Sprite(whiteRectangle,(100,100))
-    Sprite(whiteRectangle,(200,100))
-    Sprite(whiteRectangle,(300,100))
-    Sprite(whiteRectangle,(400,100))
-    Sprite(whiteRectangle,(500,100))
-    Sprite(redCircle,(700,150))
+    Sprite(whiteRectangle,(110,110))
+    Sprite(whiteRectangle,(210,110))
+    Sprite(whiteRectangle,(310,110))
+    Sprite(whiteRectangle,(410,110))
+    Sprite(whiteRectangle,(510,110))
+    Sprite(redCircle,(650,100))
     Sprite(cardRectangle,(50,250))
     Sprite(cardRectangle,(300,250))
     Sprite(titleCard,(125,250))
